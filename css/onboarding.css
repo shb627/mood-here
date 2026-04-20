@@ -1,0 +1,72 @@
+/* swiper */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+.swiper-wrapper {
+  width: 100%;
+}
+
+.swiper-slide {
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  background: #444;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.onboard-1 {
+  width: 100%;
+  background-color: var(--gray-100);
+}
+.gif-wrap {
+  width: 100%;
+}
+.gif-img {
+  width: 100%;
+}
+
+.gif-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.intro {
+  padding: 24px 16px 180px 16px;
+}
+.intro .text {
+  font-size: var(--font-xl);
+  line-height: 40px;
+  padding: 16px 0;
+  font-weight: 600;
+  text-align: left;
+}
+.intro .text h2 {
+}
+.intro .sub-text {
+  color: var(--gray-400);
+  text-align: left;
+  font-size: var(--font-4xl);
+}
+
+.swiper-pagination {
+  position: absolute;
+  bottom: 80px;
+}
+
+.btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  width: 100%;
+  padding-bottom: 40px;
+  padding-right: 16px;
+  padding-left: 16px;
+}
