@@ -150,6 +150,27 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
+input {
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+  padding: var(--spacing-16) var(--spacing-12);
+
+  border: 1px solid var(--gray-200);
+  background: none;
+
+  background-color: var(--gray-100);
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  cursor: pointer;
+  /* appearance: none; */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: var(--spacing-12);
+}
+
 /* 비활성 상태 */
 button:disabled {
   cursor: not-allowed;
@@ -172,7 +193,7 @@ button:disabled {
   max-width: var(--container-max);
   flex: 1;
   padding: 0 16px;
-  background-color: var(--gray-200);
+  background-color: #ededed;
 }
 .header {
   width: 100%;
@@ -258,16 +279,47 @@ button:disabled {
   flex-direction: column;
 }
 .logo-wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 80px 0 80px 0;
 }
 .logo-column {
   width: 117px;
   height: auto;
 }
+
+.bounce {
+  animation: bounce 0.7s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+@keyframes bounce {
+  0% {
+    transform: translateY(0) scaleY(1) scaleX(1);
+  }
+  15% {
+    transform: translateY(-20px) scaleY(1.1) scaleX(0.92);
+  }
+  30% {
+    transform: translateY(-40px) scaleY(1.15) scaleX(0.88);
+  }
+  50% {
+    transform: translateY(-30px) scaleY(1.1) scaleX(0.92);
+  }
+  65% {
+    transform: translateY(-10px) scaleY(0.92) scaleX(1.08);
+  }
+  75% {
+    transform: translateY(-10px) scaleY(1.06) scaleX(0.96);
+  }
+  85% {
+    transform: translateY(-10px) scaleY(1.02) scaleX(0.99);
+  }
+  100% {
+    transform: translateY(0) scaleY(1) scaleX(1);
+  }
+}
+
 .logo-column img {
   /* width: 117;
   height: auto; */
@@ -276,60 +328,43 @@ button:disabled {
 /* 로그인 인풋 */
 .login-form-wrap {
   width: 100%;
-  padding: 0 0 40px 0;
   min-width: 335px;
   max-width: 535px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 40px 0;
 }
 .login-box {
   width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   gap: 8px;
-}
-input {
-  width: 100%;
-
-  margin: 0;
-  padding: 0;
-  padding: var(--spacing-16) var(--spacing-12);
-
-  border: none;
-  background: none;
-
-  background-color: var(--gray-100);
-  font-size: 16px;
-  font-weight: 500;
-  color: #000000;
-  cursor: pointer;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  border-radius: var(--spacing-12);
-}
-button {
-  display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+button {
   height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* sns로그인 */
 .sns-divider {
-  display: flex;
-  align-items: center;
-  gap: 24px; /* 글자와 선 사이 간격 */
   width: 100%;
-  padding: 0 0 20px 0;
   max-width: 535px;
+  display: flex;
+  gap: 24px; /* 글자와 선 사이 간격 */
+  align-items: center;
+  padding: 0 0 20px 0;
 }
 
 .sns-divider::before,
 .sns-divider::after {
   content: "";
-  flex: 1; /* 양쪽 선이 남는 공간만큼 늘어남 */
   height: 1px;
+  flex: 1; /* 양쪽 선이 남는 공간만큼 늘어남 */
   background-color: #bdbdbd;
 }
 
@@ -346,6 +381,7 @@ button {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding-bottom: 16px;
 }
 .sns-login-wrap a {
   width: 100%;
@@ -359,8 +395,8 @@ button {
   width: 100%;
   min-width: 335px;
   max-width: 535px;
-  display: flex;
   height: 48px;
+  display: flex;
   align-items: center;
   justify-content: center;
   padding: var(--spacing-16) var(--spacing-12);
@@ -384,9 +420,9 @@ button {
   width: 100%;
   min-width: 335px;
   max-width: 535px;
-  display: flex;
 
   height: 48px;
+  display: flex;
   align-items: center;
   justify-content: center;
   padding: var(--spacing-16) var(--spacing-12);
@@ -408,11 +444,11 @@ button {
 .google {
   position: relative;
   width: 100%;
-  display: flex;
 
   min-width: 335px;
   max-width: 535px;
   height: 48px;
+  display: flex;
   align-items: center;
   justify-content: center;
   padding: var(--spacing-16) var(--spacing-12);
@@ -430,6 +466,91 @@ button {
   left: 8px;
   width: 48px;
   height: 48px;
+}
+
+.move-signup {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.sns-divider-text {
+}
+.signup-text {
+  color: var(--green-400);
+}
+.signup-text:hover {
+  font-weight: 600;
+  color: var(--green-500);
+}
+
+/* 회원가입 */
+
+.wrap-column {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.before {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #000000;
+  width: 24px;
+  height: 24px;
+  padding: 40px 0;
+}
+.before i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #000000;
+}
+.page-title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.page-title h2 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px 0;
+}
+.signup-title {
+  padding-bottom: 24px;
+}
+.signup-title p {
+}
+.signup-title .signup-text {
+}
+.tel-wrap {
+  display: flex;
+  gap: 4px;
+  flex-direction: row;
+}
+.tel-wrap .tel {
+  display: flex;
+  /* width: 80%; */
+  flex: 2.5;
+}
+.tel-wrap .authnum {
+  display: flex;
+  justify-content: center;
+  flex: 1.5;
+  /* width: 20%; */
+}
+.signup-id {
+  width: 100%;
+  display: flex;
 }
 
 /* 반응형 */
@@ -450,6 +571,131 @@ button {
 
 @media screen and (min-width: 1024px) {
   .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 0 40px;
+  }
+  .login-page-wrap {
+    width: 100%;
+    max-width: 1000px; /* PC에서 너무 퍼지지 않게 조절 */
+    display: flex;
+    gap: 100px; /* 로고와 폼 사이의 간격 */
+    align-items: center;
+    justify-content: center;
+    flex-direction: row; /* 세로 나열에서 가로 나열로 변경 */
+    margin: 0 auto;
+
+    .bounce {
+      animation: bounce 0.7s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    }
+    @keyframes bounce {
+      0% {
+        transform: translateY(0) scaleY(1) scaleX(1);
+      }
+      15% {
+        transform: translateY(-80px) scaleY(1.1) scaleX(0.92);
+      }
+      30% {
+        transform: translateY(-120px) scaleY(1.15) scaleX(0.88);
+      }
+      50% {
+        transform: translateY(-80px) scaleY(1.1) scaleX(0.92);
+      }
+      65% {
+        transform: translateY(-10px) scaleY(0.92) scaleX(1.08);
+      }
+      75% {
+        transform: translateY(0) scaleY(1.06) scaleX(0.96);
+      }
+      85% {
+        transform: translateY(-16px) scaleY(1.02) scaleX(0.99);
+      }
+      100% {
+        transform: translateY(0) scaleY(1) scaleX(1);
+      }
+    }
+  }
+
+  /* 로고 영역 조절 */
+  .logo-wrap {
+    display: flex;
+    justify-content: center; /* 로고를 중앙쪽으로 밀착 (원할 경우) */
+    flex: 0.5;
+    padding: 0; /* 모바일의 80px 패딩 제거 */
+  }
+
+  .logo-column {
+    width: 300px; /* PC에서는 로고를 조금 더 키워도 좋습니다 */
+  }
+
+  .bounce {
+    animation: bounce 0.7s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  }
+  @keyframes bounce {
+    0% {
+      transform: translateY(0) scaleY(1) scaleX(1);
+    }
+    15% {
+      transform: translateY(-80px) scaleY(1.1) scaleX(0.92);
+    }
+    30% {
+      transform: translateY(-120px) scaleY(1.15) scaleX(0.88);
+    }
+    50% {
+      transform: translateY(-80px) scaleY(1.1) scaleX(0.92);
+    }
+    65% {
+      transform: translateY(-10px) scaleY(0.92) scaleX(1.08);
+    }
+    75% {
+      transform: translateY(0) scaleY(1.06) scaleX(0.96);
+    }
+    85% {
+      transform: translateY(-16px) scaleY(1.02) scaleX(0.99);
+    }
+    100% {
+      transform: translateY(0) scaleY(1) scaleX(1);
+    }
+  }
+
+  /* 우측 콘텐츠 영역 조절 */
+  .login-content-side {
+    width: 100%;
+    max-width: 400px; /* 폼의 최대 너비 고정 */
+    display: flex;
+    align-items: flex-start; /* 왼쪽 정렬 */
+    flex: 1;
+    flex-direction: column;
+  }
+
+  /* 기존 가로 너비 제한 클래스들 수정 */
+  .login-form-wrap,
+  .sns-divider,
+  .sns-login-wrap,
+  .sns-login-wrap a {
+    width: 100%;
+    max-width: 100%; /* 부모인 .login-content-side에 맞춤 */
+  }
+
+  /* 회원가입 문구 정렬 */
+  .move-signup {
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .login-box {
+    transition: all 0.55s cubic-bezier(0.77, 0, 0.18, 1);
+  }
+
+  .login-shell.is-desktop {
+    gap: 60px;
+    flex-direction: row;
+    padding: 40px;
+  }
+  .login-shell.is-desktop .logo-block svg {
+    width: 160px;
+    height: 160px;
   }
 }
