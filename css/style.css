@@ -1,5 +1,28 @@
 /* Design Token 케밥케이스로 작성 */
+@supports (padding: env(safe-area-inset-top)) {
+  :root {
+    --safe-top: env(safe-area-inset-top);
+
+    --safe-bottom: env(safe-area-inset-bottom);
+  }
+}
+
 :root {
+  /* 상단,헤더,하단 바 */
+  --safe-top: 0px;
+  --safe-bottom: 0px;
+
+  /* 헤더 높이 */
+  --header-h-mobile: 56px;
+  --header-h-tablet: 64px;
+
+  /* 하단 바 높이 */
+  --bottom-bar-h: 64px;
+
+  /* 인디케이터바 */
+  --indicator-apple: 34px;
+  --indicator-android: 24px;
+
   /* colors */
   /* Primary */
   --green-100: #cafbd8;
@@ -51,6 +74,34 @@
   --font-4xl: 28px;
   --font-5xl: 36px;
   --font-6xl: 48px;
+
+  @media screen and (min-width: 768px) {
+    :root {
+      --font-sm: 15px;
+      --font-md: 17px;
+      --font-lg: 20px;
+      --font-xl: 22px;
+      --font-2xl: 26px;
+      --font-3xl: 30px;
+      --font-4xl: 36px;
+      --font-5xl: 44px;
+      --font-6xl: 56px;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    :root {
+      --font-sm: 16px;
+      --font-md: 18px;
+      --font-lg: 22px;
+      --font-xl: 24px;
+      --font-2xl: 28px;
+      --font-3xl: 32px;
+      --font-4xl: 40px;
+      --font-5xl: 52px;
+      --font-6xl: 64px;
+    }
+  }
 
   /* System Token */
   /* Background */
@@ -113,6 +164,7 @@ body {
   line-height: 36px;
   color: var(--black);
   letter-spacing: -0.02em;
+  scroll-behavior: smooth;
 }
 ul,
 li {
@@ -139,7 +191,7 @@ button {
   border: none;
   background: none;
   color: inherit;
-
+  border-radius: var(--spacing-12);
   cursor: pointer;
   appearance: none;
 
@@ -161,8 +213,8 @@ input {
   background: none;
 
   background-color: var(--gray-100);
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 400;
   color: #000000;
   cursor: pointer;
   /* appearance: none; */
@@ -197,6 +249,7 @@ button:disabled {
 }
 .header {
   width: 100%;
+  height: var(--header-h-mobile);
   max-width: var(--container-max);
   display: flex;
   align-items: center;
@@ -490,6 +543,8 @@ button {
 
 .wrap-column {
   width: 100%;
+  max-width: 535px;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -497,20 +552,25 @@ button {
 }
 .before {
   width: 100%;
+  height: 64px;
+  min-width: 335px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   color: #000000;
-  width: 24px;
-  height: 24px;
   padding: 40px 0;
+  border-bottom: 1px solid var(--gray-400);
 }
 .before i {
   display: flex;
   justify-content: center;
   align-items: center;
-
+  width: 24px;
+  height: 24px;
   color: #000000;
+}
+.fa-angle-left {
+  font-size: 20px;
 }
 .page-title {
   width: 100%;
@@ -526,9 +586,11 @@ button {
   padding: 20px 0;
 }
 .signup-title {
-  padding-bottom: 24px;
+  padding-bottom: 8px;
+  gap: 4px;
 }
 .signup-title p {
+  padding-left: 6px;
 }
 .signup-title .signup-text {
 }
@@ -546,11 +608,72 @@ button {
   display: flex;
   justify-content: center;
   flex: 1.5;
-  /* width: 20%; */
+  background-color: var(--gray-200);
+  color: var(--gray-400);
+  border: 1px solid var(--gray-300);
+  cursor: not-allowed;
 }
-.signup-id {
+.authnum-active {
+  display: flex;
+  justify-content: center;
+  flex: 1.5;
+  background-color: var(--gray-600);
+  color: var(--gray-100);
+  border: 1px solid var(--gray-700);
+}
+.authnum-active:hover {
+  display: flex;
+  justify-content: center;
+  flex: 1.5;
+  background-color: var(--gray-800);
+  color: var(--gray-100);
+  border: 1px solid var(--gray-900);
+}
+.authnum-complete {
+  display: flex;
+  justify-content: center;
+  flex: 1.5;
+  background-color: var(--green-400);
+  color: var(--white);
+  border: 1px solid var(--green-500);
+}
+.authnum-complete:hover {
+  display: flex;
+  justify-content: center;
+  flex: 1.5;
+  background-color: var(--green-500);
+  color: var(--white);
+  border: 1px solid var(--green-500);
+}
+
+.signup {
   width: 100%;
   display: flex;
+}
+.pw-error,
+.pw-complete {
+  display: none;
+  font-size: 12px;
+  padding-left: 6px;
+  margin-top: 4px;
+}
+
+.pw-error {
+  font-size: 12px;
+  color: var(--error);
+  padding-left: 6px;
+  font-weight: 600;
+}
+
+.pw-complete {
+  font-size: 12px;
+  color: var(--success);
+  padding-left: 6px;
+  font-weight: 600;
+}
+
+.menu-bar {
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 /* 반응형 */
@@ -571,10 +694,14 @@ button {
 
 @media screen and (min-width: 1024px) {
   .container {
+    max-width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0 40px;
+  }
+  .wrap-column {
+    width: 100%;
   }
   .login-page-wrap {
     width: 100%;
@@ -697,5 +824,25 @@ button {
   .login-shell.is-desktop .logo-block svg {
     width: 160px;
     height: 160px;
+  }
+
+  .before {
+    width: 100%;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #000000;
+    padding: 40px 0;
+    border-bottom: none;
+  }
+  .before i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+  }
+  .fa-angle-left {
+    font-size: 24px;
   }
 }
