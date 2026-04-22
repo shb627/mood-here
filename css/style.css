@@ -166,6 +166,11 @@ body {
   letter-spacing: -0.02em;
   scroll-behavior: smooth;
 }
+section {
+  display: flex;
+  width: 100%;
+  padding: 20px 0;
+}
 ul,
 li {
   list-style: none;
@@ -242,10 +247,13 @@ button:disabled {
 .container {
   position: relative;
   width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
   max-width: var(--container-max);
   flex: 1;
   padding: 0 16px;
-  background-color: #ededed;
+  background-color: #f7f7f7;
 }
 .header {
   width: 100%;
@@ -680,6 +688,12 @@ button {
 @media screen and (min-width: 768px) {
   .container {
     padding: 0 24px;
+    /* max-width: 720px; */
+    /* max-width: 744px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
   }
   .button {
     width: 100%;
