@@ -5,9 +5,14 @@
   justify-content: center;
   align-items: center;
 }
-.swiper {
+.banner-swiper-wrap {
   width: 100%;
   height: 100%;
+  padding: 20px 0;
+}
+.swiper {
+  width: 100%;
+  height: auto;
 }
 .swiper-wrapper {
 }
@@ -16,7 +21,6 @@
   text-align: center;
   font-size: 18px;
   background: #444;
-  display: flex;
   border-radius: var(--spacing-12);
 
   justify-content: center;
@@ -33,6 +37,152 @@
 
   object-fit: cover;
 }
+.btn-text {
+  padding: 14px 20px 20px 20px;
+  position: relative;
+}
+.title {
+  /* padding: 0 0 8px 0; */
+  font-size: var(--font-lg);
+  font-weight: 700;
+}
+.sub-title {
+  line-height: 20px;
+  font-size: 14px;
+  color: var(--gray-400);
+}
+.record-mood-container {
+  position: relative;
+  display: flex;
+  gap: 8px;
+}
+.mood-archive-btn {
+  position: relative;
+  border-radius: var(--spacing-12);
+  border: 1px solid var(--gray-300);
+  background-color: #fff;
+  width: 100%;
+  height: 198px;
+  flex: 1;
+  overflow: hidden;
+}
+/* .mood-archive-text {
+  padding: 20px;
+  position: relative;
+} */
+.mood-record-btn {
+  border-radius: var(--spacing-12);
+  border: 1px solid var(--gray-300);
+  background-color: #fff;
+  width: 100%;
+  height: 198px;
+  flex: 1;
+  overflow: hidden;
+}
+
+.card-container {
+  position: relative;
+  bottom: 20px;
+  left: 100px;
+  width: 82px; /* 이미지 실제 크기에 맞춰 조절 */
+  height: 108px;
+  margin: 50 auto;
+}
+
+.card {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+  border-radius: var(--spacing-8);
+  transform-origin: bottom right;
+  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+
+  /* 애니메이션 설정: 0.8초 동안, 약간의 튕김 효과(cubic-bezier) */
+  animation: spreadOut 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+
+  /* 초기 상태: 모두 겹쳐 있음 */
+  transform: rotate(0deg);
+  opacity: 0;
+}
+
+/* 카드별 순서 및 애니메이션 지연 시간(Delay) */
+.card1 {
+  z-index: 3;
+  animation-delay: 0.1s;
+}
+.card2 {
+  z-index: 2;
+  animation-delay: 0.3s; /* card1 이후에 펼쳐짐 */
+}
+.card3 {
+  z-index: 1;
+  animation-delay: 0.5s; /* 가장 마지막에 펼쳐짐 */
+}
+
+/* 펼쳐지는 애니메이션 정의 */
+@keyframes spreadOut {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    /* 각 카드가 멈출 최종 위치 */
+  }
+}
+
+/* card2와 card3의 최종 위치(각도) 지정 */
+.card2 {
+  animation-name: spreadOut2;
+}
+.card3 {
+  animation-name: spreadOut3;
+}
+.card1 {
+  animation-name: fadeIn; /* 기준 카드는 회전 없이 나타나기만 함 */
+}
+
+@keyframes spreadOut2 {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-15deg) translateX(-15px);
+  }
+}
+
+@keyframes spreadOut3 {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-30deg) translateX(-30px);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.mood-record {
+  border-radius: var(--spacing-12);
+  border: 1px solid var(--gray-100);
+  background-color: #fff;
+  width: 100%;
+  height: 198px;
+  flex: 1;
+}
 
 /* 배너 */
 .banner-title {
@@ -42,6 +192,31 @@
   bottom: 25px;
   left: 25px;
   text-align: left;
+}
+
+.recommend-place-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.place-title-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.place-title-top .title {
+}
+.place-title-top .sub-title {
+}
+.place-title-top .fa-angle-right {
+  font-size: 12px;
+  color: var(--white);
+  background-color: var(--green-400);
+  border-radius: 100px;
+}
+.place-preview {
+}
+.mood-community {
 }
 
 /* 반응형 */
@@ -56,6 +231,14 @@
     border-radius: var(--spacing-12);
     object-fit: cover;
   }
+  .card-container {
+    position: relative;
+    bottom: 50px;
+    left: 250px;
+    width: calc(82px * 1.5); /* 이미지 실제 크기에 맞춰 조절 */
+    height: calc(108px * 1.5);
+    margin: 50 auto;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -67,11 +250,30 @@
     padding: 0 40px;
   }
 
+  .banner-swiper-wrap {
+    width: 100%;
+    padding: 20px 0;
+  }
+
+  .swiper {
+    width: 100%;
+    height: auto;
+  }
+
+  .swiper-slide {
+    position: relative;
+    display: block;
+    background: transparent;
+    border-radius: var(--spacing-12);
+    overflow: hidden;
+    border: 1px solid var(--gray-100);
+  }
+
   .swiper-slide img {
     display: block;
     width: 100%;
     height: 320px;
-    border-radius: var(--spacing-12);
     object-fit: cover;
+    border-radius: var(--spacing-12);
   }
 }
