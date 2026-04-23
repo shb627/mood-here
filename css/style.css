@@ -167,8 +167,8 @@ body {
   scroll-behavior: smooth;
 }
 section {
-  display: flex;
   width: 100%;
+  display: flex;
   padding: 20px 0;
 }
 ul,
@@ -196,8 +196,8 @@ button {
   border: none;
   background: none;
   color: inherit;
-  border-radius: var(--spacing-12);
   cursor: pointer;
+  border-radius: var(--spacing-12);
   appearance: none;
 
   font: inherit;
@@ -205,6 +205,16 @@ button {
 button:focus-visible {
   outline: 2px solid var(--success);
   outline-offset: 2px;
+}
+.title {
+  /* padding: 0 0 8px 0; */
+  font-size: var(--font-lg);
+  font-weight: 700;
+}
+.sub-title {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--gray-400);
 }
 
 input {
@@ -227,6 +237,63 @@ input {
   -moz-appearance: none;
   border-radius: var(--spacing-12);
 }
+/* 하단 네비게이션 */
+/* Bottom nav */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 112px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 16px;
+  border-top: 1px solid #f0f0f0;
+  box-shadow: 0 1px 10px 2px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  background: white;
+}
+.bottom-nav a {
+  flex: 1;
+  text-decoration: none;
+}
+
+.bottom-nav-container {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  padding: 0;
+}
+.nav-item {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  flex-direction: column;
+  color: var(--gray-300);
+}
+
+.nav-item img {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.nav-item span {
+  font-size: 12px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.nav-text.active {
+  color: var(--green-400);
+}
 
 /* 비활성 상태 */
 button:disabled {
@@ -239,7 +306,7 @@ button:disabled {
 .layout {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -247,22 +314,34 @@ button:disabled {
 .container {
   position: relative;
   width: 100%;
+  max-width: var(--container-max);
   display: flex;
   align-items: flex-start;
-  justify-content: center;
-  max-width: var(--container-max);
   flex: 1;
+  /* justify-content: center; */
+  flex-direction: column;
+  margin-top: 52px;
   padding: 0 16px;
   background-color: #f7f7f7;
 }
-.header {
+.top {
   width: 100%;
-  height: var(--header-h-mobile);
+  height: 44px;
+}
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
   max-width: var(--container-max);
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 0 40px;
+  justify-content: flex-start;
+  padding: 0 16px;
+  padding-top: env(safe-area-inset-top);
+  z-index: 2;
+  background-color: var(--white);
 }
 .header-container {
   width: 100%;
@@ -270,7 +349,13 @@ button:disabled {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 0;
+  padding: 8px 8px;
+}
+.header-title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 .header .logo {
   width: 200px;
@@ -560,21 +645,21 @@ button {
 }
 .before {
   width: 100%;
-  height: 64px;
   min-width: 335px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  color: #000000;
   padding: 40px 0;
-  border-bottom: 1px solid var(--gray-400);
+  border-bottom: 1px solid var(--gray-200);
+  color: #000000;
 }
 .before i {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 24px;
   height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #000000;
 }
 .fa-angle-left {
@@ -594,8 +679,8 @@ button {
   padding: 20px 0;
 }
 .signup-title {
-  padding-bottom: 8px;
   gap: 4px;
+  padding-bottom: 8px;
 }
 .signup-title p {
   padding-left: 6px;
@@ -616,42 +701,42 @@ button {
   display: flex;
   justify-content: center;
   flex: 1.5;
+  border: 1px solid var(--gray-300);
   background-color: var(--gray-200);
   color: var(--gray-400);
-  border: 1px solid var(--gray-300);
   cursor: not-allowed;
 }
 .authnum-active {
   display: flex;
   justify-content: center;
   flex: 1.5;
+  border: 1px solid var(--gray-700);
   background-color: var(--gray-600);
   color: var(--gray-100);
-  border: 1px solid var(--gray-700);
 }
 .authnum-active:hover {
   display: flex;
   justify-content: center;
   flex: 1.5;
+  border: 1px solid var(--gray-900);
   background-color: var(--gray-800);
   color: var(--gray-100);
-  border: 1px solid var(--gray-900);
 }
 .authnum-complete {
   display: flex;
   justify-content: center;
   flex: 1.5;
+  border: 1px solid var(--green-500);
   background-color: var(--green-400);
   color: var(--white);
-  border: 1px solid var(--green-500);
 }
 .authnum-complete:hover {
   display: flex;
   justify-content: center;
   flex: 1.5;
+  border: 1px solid var(--green-500);
   background-color: var(--green-500);
   color: var(--white);
-  border: 1px solid var(--green-500);
 }
 
 .signup {
@@ -661,23 +746,23 @@ button {
 .pw-error,
 .pw-complete {
   display: none;
-  font-size: 12px;
-  padding-left: 6px;
   margin-top: 4px;
+  padding-left: 6px;
+  font-size: 12px;
 }
 
 .pw-error {
-  font-size: 12px;
-  color: var(--error);
   padding-left: 6px;
+  font-size: 12px;
   font-weight: 600;
+  color: var(--error);
 }
 
 .pw-complete {
-  font-size: 12px;
-  color: var(--success);
   padding-left: 6px;
+  font-size: 12px;
   font-weight: 600;
+  color: var(--success);
 }
 
 .menu-bar {
@@ -687,13 +772,21 @@ button {
 /* 반응형 */
 @media screen and (min-width: 768px) {
   .container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    flex-direction: column;
     padding: 0 24px;
-    /* max-width: 720px; */
-    /* max-width: 744px; */
+  }
+  .header {
+    width: 100%;
+    max-width: var(--container-max);
+    height: var(--header-h-mobile);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    padding: 0 24px;
   }
   .button {
     width: 100%;
@@ -704,11 +797,35 @@ button {
   .intro {
     padding: 24px 24px 180px 24px;
   }
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 112px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 24px;
+    border-top: 1px solid #f0f0f0;
+    z-index: 2;
+    background: white;
+  }
 }
 
+/* desktop */
 @media screen and (min-width: 1024px) {
   .container {
     max-width: 100%;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+    padding: 0 40px;
+  }
+  .header {
+    width: 100%;
+    max-width: var(--container-max);
+    height: var(--header-h-mobile);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -846,17 +963,20 @@ button {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    color: #000000;
     padding: 40px 0;
     border-bottom: none;
+    color: #000000;
   }
   .before i {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     color: #000000;
   }
   .fa-angle-left {
     font-size: 24px;
+  }
+  .bottom-nav {
+    display: none;
   }
 }

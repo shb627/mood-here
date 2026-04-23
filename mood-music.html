@@ -7,6 +7,8 @@
 
     <link rel="stylesheet" href="css/home.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/moodmusic.css" />
+
     <script
       src="https://kit.fontawesome.com/bd66e01c7b.js"
       crossorigin="anonymous"
@@ -22,11 +24,9 @@
     <div class="layout">
       <header class="header">
         <div class="header-container">
-          <a href="home.html">
-            <div class="logo">
-              <img src="assets/icons/header-logo.svg" alt="" />
-            </div>
-          </a>
+          <a href="/home.html"><i class="fa-solid fa-angle-left"></i></a>
+          <div class="header-title">이 장소의 플레이리스트</div>
+
           <div class="user-menu">
             <a href="">
               <div class="searchicon">
@@ -36,55 +36,46 @@
           </div>
         </div>
       </header>
-      <main class="container">
-        <div class="phone" id="player">
-          <div class="status-bar">
-            <span>9:41</span>
-            <span>📶 🔋</span>
-          </div>
-
-          <div class="nav-bar">
-            <span class="back">‹</span>
-            <span class="title">이 장소의 플레이리스트</span>
-            <span class="icons">🔍 🔔</span>
-          </div>
-
-          <div class="album-section">
-            <div class="album-art" id="albumArt">
-              <div class="vinyl-ring"></div>
-              <div class="flower">🌼</div>
-              <div class="album-title">FULL<br />BL🌸M</div>
+      <div class="container">
+        <main class="muisc-page-container">
+          <div class="player-container" id="player">
+            <div class="album-container">
+              <img src="assets/images/full-bloom-album.jpg" alt="" />
             </div>
-            <div class="song-info">
-              <div class="song-title">사라진 기억 (Remember)</div>
-              <div class="artist-name">펀치</div>
-            </div>
-          </div>
 
-          <!-- Visualizer -->
-          <div class="visualizer" id="visualizer">
+            <div class="music-title"><h3>사라진 기억</h3></div>
+            <div class="music-singer"><span>펀치</span></div>
+            <!-- Visualizer -->
+            <!-- <div class="visualizer" id="visualizer"> -->
             <!-- bars inserted by JS -->
-          </div>
+            <!-- </div> -->
 
-          <div class="progress-section">
-            <div class="progress-bar" id="progressBar">
-              <div class="progress-fill" id="progressFill"></div>
+            <div class="progress-section">
+              <div class="progress-bar" id="progressBar">
+                <div class="progress-fill" id="progressFill"></div>
+              </div>
+              <div class="time-labels">
+                <span id="currentTime">0:00</span>
+                <span id="totalTime">0:00</span>
+              </div>
             </div>
-            <div class="time-labels">
-              <span id="currentTime">0:00</span>
-              <span id="totalTime">0:00</span>
+
+            <div class="controls">
+              <button class="ctrl-btn" id="prevBtn" title="이전">
+                <i class="fa-solid fa-angles-left"></i>
+              </button>
+              <i
+                class="fa-solid fa-circle-play play-btn"
+                id="playBtn"
+                title="재생"
+              ></i>
+              <!-- <i class="fa-solid fa-circle-pause"></i> -->
+              <button class="ctrl-btn" id="nextBtn" title="다음">
+                <i class="fa-solid fa-angles-right"></i>
+              </button>
             </div>
-          </div>
 
-          <div class="controls">
-            <button class="ctrl-btn" id="prevBtn" title="이전">⏮</button>
-            <button class="play-btn" id="playBtn" title="재생/일시정지">
-              ▶
-            </button>
-            <button class="ctrl-btn" id="nextBtn" title="다음">⏭</button>
-          </div>
-
-          <div class="volume-section">
+            <!-- <div class="volume-section">
             <span class="vol-icon">🔈</span>
             <input
               type="range"
@@ -96,42 +87,76 @@
               value="0.7"
             />
             <span class="vol-icon">🔊</span>
+          </div> -->
           </div>
+          <div class="music-memo">
+            <div class="location-card">
+              <div class="location-date-container">
+                <div class="location-date">2026.06.27</div>
+                <img
+                  src="assets/icons/feel-peace.svg"
+                  class="location-date-img"
+                  alt=""
+                />
+              </div>
+              <div class="location-name">스타벅스 대구중앙로역점</div>
+            </div>
 
-          <div class="location-card">
-            <div class="location-date">2022.06.25</div>
-            <div class="location-name">스타벅스 대구중앙로역점</div>
-          </div>
-
-          <div class="memo-section">
-            <div class="memo-text">
-              오늘도 평범한 하루를 보내고 커피 한 잔하며<br />하루를 마무리
-              했다~
+            <div class="memo-contianer">
+              <div class="memo-text">
+                오늘도 평범한 하루를 보내고 커피 한 잔하며<br />하루를 마무리
+                했다~
+              </div>
             </div>
           </div>
-
-          <div class="bottom-nav">
+        </main>
+      </div>
+      <div class="bottom-nav">
+        <div class="bottom-nav-container">
+          <a href="/home.html">
             <div class="nav-item">
-              <span class="nav-icon">🏠</span><span>홈</span>
+              <img src="assets/icons/svg/dis-home.svg" alt="홈 비활성화" />
+              <span>홈</span>
             </div>
-            <div class="nav-item active">
-              <span class="nav-icon">🎵</span><span>무드뮤직</span>
-            </div>
+          </a>
+          <a href="/mood-music.html">
             <div class="nav-item">
-              <span class="nav-icon">😊</span><span>무드기록</span>
+              <img
+                src="assets/icons/svg/dis-music.svg"
+                alt="무드뮤직 비활성화"
+              />
+              <span>무드뮤직</span>
             </div>
+          </a>
+          <a href="/mood-music.html">
             <div class="nav-item">
-              <span class="nav-icon">🖼</span><span>아카이브</span>
+              <img
+                src="assets/icons/svg/dis-record.svg"
+                alt="무드기록 비활성화"
+              />
+              <span>무드기록</span>
             </div>
+          </a>
+          <a href="/record-mood.html">
             <div class="nav-item">
-              <span class="nav-icon">👤</span><span>마이페이지</span>
+              <img
+                src="assets/icons/svg/dis-archive.svg"
+                alt="아카이브 비활성화"
+              />
+              <span>아카이브</span>
             </div>
-          </div>
+          </a>
+          <a href="/mood-music.html">
+            <div class="nav-item">
+              <img
+                src="assets/icons/svg/dis-mypage.svg"
+                alt="마이페이지 비활성화"
+              />
+              <span class="nav-text">마이페이지</span>
+            </div>
+          </a>
         </div>
-
-        <div class="toast" id="toast"></div>
-      </main>
-      <footer class="footer"></footer>
+      </div>
     </div>
 
     <!-- Swiper JS -->

@@ -41,16 +41,7 @@
   padding: 14px 20px 20px 20px;
   position: relative;
 }
-.title {
-  /* padding: 0 0 8px 0; */
-  font-size: var(--font-lg);
-  font-weight: 700;
-}
-.sub-title {
-  line-height: 20px;
-  font-size: 14px;
-  color: var(--gray-400);
-}
+
 .record-mood-container {
   position: relative;
   display: flex;
