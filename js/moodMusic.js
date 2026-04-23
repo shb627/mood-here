@@ -1,201 +1,137 @@
-export function moodMusicPlayer() {
-  const tracks = [
-    {
-      title: "내 노래 제목",
-      artist: "아티스트명",
-      src: "내_음악파일.mp3",
-    },
-  ];
-}
+const audio = document.getElementById("audio");
+const playBtn = document.getElementById("playBtn");
+const progressBar = document.getElementById("progressBar");
+const progressFill = document.getElementById("progressFill");
+const currentTimeEl = document.getElementById("currentTime");
+const totalTimeEl = document.getElementById("totalTime");
+const visualizer = document.getElementById("visualizer");
 
-// ─── 오디오 세팅 ───────────────────────────────────────────────
-// 무료 공개 음원 (Wikimedia / Free Music Archive)
-// 자신의 음원 파일로 교체하려면 아래 src를 바꾸세요.
-const tracks = [
-  {
-    title: "사라진 기억 (Remember)",
-    artist: "펀치",
-    // 무료 샘플 - Bensound "Sunny"
-    src: "https://www.bensound.com/bensound-music/bensound-sunny.mp3",
-    date: "2022.06.25",
-    place: "스타벅스 대구중앙로역점",
-    memo: "오늘도 평범한 하루를 보내고 커피 한 잔하며\n하루를 마무리 했다~",
-  },
-  {
-    title: "Acoustic Breeze",
-    artist: "Bensound",
-    src: "https://www.bensound.com/bensound-music/bensound-acousticbreeze.mp3",
-    date: "2022.07.03",
-    place: "스타벅스 동성로점",
-    memo: "비 오는 날 창가에 앉아 여유롭게 🌧",
-  },
-  {
-    title: "Creative Minds",
-    artist: "Bensound",
-    src: "https://www.bensound.com/bensound-music/bensound-creativeminds.mp3",
-    date: "2022.07.15",
-    place: "카페 봄",
-    memo: "새로운 아이디어가 떠오른 날 ✨",
-  },
-];
+const playIcon = "fa-circle-play";
+const pauseIcon = "fa-circle-pause";
 
-let currentIndex = 0;
 let isPlaying = false;
-let audio = new Audio();
-audio.volume = 0.7;
-audio.crossOrigin = "anonymous";
 
-// ─── Web Audio API 비주얼라이저 ──────────────────────────────
-let audioCtx, analyser, source, dataArray;
-
-function setupAnalyser() {
-  if (audioCtx) return;
-  audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  analyser = audioCtx.createAnalyser();
-  analyser.fftSize = 64;
-  source = audioCtx.createMediaElementSource(audio);
-  source.connect(analyser);
-  analyser.connect(audioCtx.destination);
-  dataArray = new Uint8Array(analyser.frequencyBinCount);
-}
-
-// ─── 비주얼라이저 바 생성 ───────────────────────────────────
-const vizEl = document.getElementById("visualizer");
+/* ---------------------------
+   visualizer bar 만들기
+--------------------------- */
 const BAR_COUNT = 20;
 const bars = [];
+
 for (let i = 0; i < BAR_COUNT; i++) {
-  const b = document.createElement("div");
-  b.className = "bar";
-  vizEl.appendChild(b);
-  bars.push(b);
+  const bar = document.createElement("span");
+  bar.classList.add("bar");
+  visualizer.appendChild(bar);
+  bars.push(bar);
 }
 
-function animateBars() {
-  if (!isPlaying) {
-    bars.forEach((b) => (b.style.height = "4px"));
-    return;
-  }
-  if (analyser) {
-    analyser.getByteFrequencyData(dataArray);
-    bars.forEach((b, i) => {
-      const val = dataArray[Math.floor((i * dataArray.length) / BAR_COUNT)];
-      const h = Math.max(4, Math.floor((val / 255) * 26));
-      b.style.height = h + "px";
-    });
+/* ---------------------------
+   시간 포맷 함수
+--------------------------- */
+function formatTime(time) {
+  if (isNaN(time)) return "0:00";
+
+  const minutes = Math.floor(time / 60);
+  const seconds = Math.floor(time % 60);
+
+  return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+}
+
+/* ---------------------------
+   재생 버튼 아이콘 변경
+--------------------------- */
+function updatePlayButton() {
+  const icon = playBtn.querySelector("i");
+
+  if (isPlaying) {
+    icon.classList.remove(playIcon);
+    icon.classList.add(pauseIcon);
   } else {
-    // fallback: random bounce
-    bars.forEach((b) => {
-      const h = Math.random() * 22 + 4;
-      b.style.height = h + "px";
-    });
+    icon.classList.remove(pauseIcon);
+    icon.classList.add(playIcon);
   }
-  requestAnimationFrame(animateBars);
 }
 
-// ─── UI 업데이트 ───────────────────────────────────────────
-function loadTrack(idx) {
-  const t = tracks[idx];
-  audio.src = t.src;
-  document.querySelector(".song-title").textContent = t.title;
-  document.querySelector(".artist-name").textContent = t.artist;
-  document.querySelector(".location-date").textContent = t.date;
-  document.querySelector(".location-name").textContent = t.place;
-  document.querySelector(".memo-text").innerHTML = t.memo.replace("\n", "<br>");
-  document.getElementById("progressFill").style.width = "0%";
-  document.getElementById("currentTime").textContent = "0:00";
-  document.getElementById("totalTime").textContent = "0:00";
+/* ---------------------------
+   재생
+--------------------------- */
+function playMusic() {
+  audio.play();
+  isPlaying = true;
+  updatePlayButton();
+  visualizer.classList.add("is-playing");
 }
 
-function formatTime(sec) {
-  if (isNaN(sec)) return "0:00";
-  const m = Math.floor(sec / 60);
-  const s = Math.floor(sec % 60);
-  return `${m}:${s.toString().padStart(2, "0")}`;
+/* ---------------------------
+   일시정지
+--------------------------- */
+function pauseMusic() {
+  audio.pause();
+  isPlaying = false;
+  updatePlayButton();
+  visualizer.classList.remove("is-playing");
 }
 
-// ─── 재생/일시정지 ─────────────────────────────────────────
-const playBtn = document.getElementById("playBtn");
-const albumArt = document.getElementById("albumArt");
-
-playBtn.addEventListener("click", async () => {
-  // iOS/Safari: AudioContext는 사용자 제스처 후 시작
-  try {
-    setupAnalyser();
-  } catch (e) {}
-
-  if (audio.paused) {
-    try {
-      if (audioCtx && audioCtx.state === "suspended") await audioCtx.resume();
-      await audio.play();
-      isPlaying = true;
-      playBtn.textContent = "⏸";
-      albumArt.classList.add("playing");
-      animateBars();
-    } catch (e) {
-      showToast("재생 오류: CORS 또는 네트워크 문제");
-      console.error(e);
-    }
+/* ---------------------------
+   재생/일시정지 토글
+--------------------------- */
+playBtn.addEventListener("click", () => {
+  if (isPlaying) {
+    pauseMusic();
   } else {
-    audio.pause();
-    isPlaying = false;
-    playBtn.textContent = "▶";
-    albumArt.classList.remove("playing");
+    playMusic();
   }
 });
 
-// ─── 이전/다음 ─────────────────────────────────────────────
+/* ---------------------------
+   메타데이터 로드 시 전체 시간 표시
+--------------------------- */
+audio.addEventListener("loadedmetadata", () => {
+  totalTimeEl.textContent = formatTime(audio.duration);
+});
+
+/* ---------------------------
+   재생 중 진행바 업데이트
+--------------------------- */
+audio.addEventListener("timeupdate", () => {
+  if (!audio.duration) return;
+
+  const progressPercent = (audio.currentTime / audio.duration) * 100;
+  progressFill.style.width = `${progressPercent}%`;
+
+  currentTimeEl.textContent = formatTime(audio.currentTime);
+});
+
+/* ---------------------------
+   진행바 클릭 시 이동
+--------------------------- */
+progressBar.addEventListener("click", (e) => {
+  const rect = progressBar.getBoundingClientRect();
+  const clickX = e.clientX - rect.left;
+  const width = rect.width;
+
+  const newTime = (clickX / width) * audio.duration;
+  audio.currentTime = newTime;
+});
+
+/* ---------------------------
+   음악 끝났을 때 초기화
+--------------------------- */
+audio.addEventListener("ended", () => {
+  isPlaying = false;
+  updatePlayButton();
+  visualizer.classList.remove("is-playing");
+  progressFill.style.width = "0%";
+  currentTimeEl.textContent = "0:00";
+});
+
+/* ---------------------------
+   이전/다음 버튼
+   지금은 곡 1개라 5초 이동용으로 처리
+--------------------------- */
 document.getElementById("prevBtn").addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + tracks.length) % tracks.length;
-  loadTrack(currentIndex);
-  if (isPlaying) audio.play().catch(() => {});
-  showToast(tracks[currentIndex].title);
+  audio.currentTime = Math.max(0, audio.currentTime - 5);
 });
 
 document.getElementById("nextBtn").addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % tracks.length;
-  loadTrack(currentIndex);
-  if (isPlaying) audio.play().catch(() => {});
-  showToast(tracks[currentIndex].title);
+  audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
 });
-
-// ─── 진행바 업데이트 ───────────────────────────────────────
-audio.addEventListener("timeupdate", () => {
-  if (!audio.duration) return;
-  const pct = (audio.currentTime / audio.duration) * 100;
-  document.getElementById("progressFill").style.width = pct + "%";
-  document.getElementById("currentTime").textContent = formatTime(
-    audio.currentTime,
-  );
-  document.getElementById("totalTime").textContent = formatTime(audio.duration);
-});
-
-audio.addEventListener("ended", () => {
-  currentIndex = (currentIndex + 1) % tracks.length;
-  loadTrack(currentIndex);
-  audio.play().catch(() => {});
-  showToast(tracks[currentIndex].title);
-});
-
-// ─── 진행바 클릭으로 탐색 ─────────────────────────────────
-document.getElementById("progressBar").addEventListener("click", (e) => {
-  if (!audio.duration) return;
-  const rect = e.currentTarget.getBoundingClientRect();
-  const ratio = (e.clientX - rect.left) / rect.width;
-  audio.currentTime = ratio * audio.duration;
-});
-
-// ─── 볼륨 ─────────────────────────────────────────────────
-document.getElementById("volumeSlider").addEventListener("input", (e) => {
-  audio.volume = e.target.value;
-});
-
-// ─── Toast 알림 ───────────────────────────────────────────
-function showToast(msg) {
-  const t = document.getElementById("toast");
-  t.textContent = msg;
-  t.classList.add("show");
-  setTimeout(() => t.classList.remove("show"), 2000);
-}
-
-// 초기 트랙 로드
-loadTrack(0);
