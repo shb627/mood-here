@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mood here</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/moodarchive.css" />
+
+    <script
+      src="https://kit.fontawesome.com/bd66e01c7b.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
+    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=c363676500da135bbb227b2613ea7977&libraries=services&autoload=false"></script>
+    <script src="js/archiveMood.js" defer></script>
+    <script src="js/script.js" defer></script>
+  </head>
+  <body>
+    <div class="layout">
+      <div class="header">
+        <div class="header-contents">
+          <div type="button" class="back-btn" id="backBtn">
+            <i class="fa-solid fa-angle-left"></i>
+          </div>
+          <div class="header-title">
+            <p>무드 아카이브</p>
+          </div>
+          <div class="user-menu">
+            <a href="">
+              <div class="searchicon">
+                <i class="fa-solid fa-magnifying-glass"></i></div
+            ></a>
+            <a href=""><i class="fa-regular fa-bell"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- 무드 기록 -->
+      <section class="archive-mood">
+        <!-- <div class="map">
+          <img src="assets/images/map-img.png" alt="" />
+        </div> -->
+
+        <div id="map"></div>
+
+        <div class="bottom-sheet" id="sheet">
+          <h3 id="title">장소명</h3>
+          <p id="desc">오늘 기분이 좋았던 장소</p>
+        </div>
+        <div class="container">
+          <div class="bottom-sheet" id="bottomSheet">
+            <div class="sheet-handle"></div>
+
+            <div class="sheet-content">
+              <h3>써브웨이 반월당역점</h3>
+              <p class="sheet-date">2026.04.27</p>
+              <p>
+                오늘 이 장소에서 기분이 좋았고, 다시 오고 싶은 기억으로 남았다.
+              </p>
+
+              <div class="dummy-content">
+                <p>내용이 길어지면 여기서 스크롤됩니다.</p>
+                <p>사진, 감정 기록, 플레이리스트 등을 넣을 수 있어요.</p>
+                <p>추가 내용...</p>
+                <p>추가 내용...</p>
+                <p>추가 내용...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="footer">sdsds</footer>
+
+      <div class="bottom-nav">
+        <div class="bottom-nav-container">
+          <a href="home.html">
+            <div class="nav-item">
+              <img src="assets/icons/svg/dis-home.svg" alt="홈 비활성화" />
+              <span>홈</span>
+            </div>
+          </a>
+          <a href="mood-music.html">
+            <div class="nav-item">
+              <img
+                src="assets/icons/svg/dis-music.svg"
+                alt="무드뮤직 비활성화"
+              />
+              <span>무드뮤직</span>
+            </div>
+          </a>
+          <a href="record-mood.html">
+            <div class="nav-item">
+              <img
+                src="assets/icons/svg/dis-record.svg"
+                alt="무드기록 비활성화"
+              />
+              <span>무드기록</span>
+            </div>
+          </a>
+          <a href="mood-archive.html">
+            <div class="nav-item">
+              <img
+                src="assets/icons/svg/dis-archive.svg"
+                alt="아카이브 비활성화"
+              />
+              <span>아카이브</span>
+            </div>
+          </a>
+          <a href="mypage.html">
+            <div class="nav-item">
+              <img
+                src="assets/icons/svg/dis-mypage.svg"
+                alt="마이페이지 비활성화"
+              />
+              <span class="nav-text">마이페이지</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <!-- <script src="app.js"></script> -->
+  </body>
+</html>

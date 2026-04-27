@@ -117,3 +117,23 @@ function renderPhotos() {
   }
 }
 renderPhotos();
+
+// 모달
+const modal = document.getElementById("modal");
+const openBtn = document.getElementById("saveMoodBtn");
+const closeBtn = document.getElementById("closeModal");
+
+openBtn.addEventListener("click", () => {
+  modal.classList.add("show");
+});
+
+closeBtn.addEventListener("click", () => {
+  modal.classList.remove("show");
+});
+
+/* 배경 클릭시 닫기 */
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.classList.remove("show");
+  }
+});
