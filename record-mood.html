@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>mood here</title>
 
-    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/record-mood.css" />
     <link rel="stylesheet" href="css/style.css" />
     <script
       src="https://kit.fontawesome.com/bd66e01c7b.js"
@@ -16,114 +16,171 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
     />
+    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=c363676500da135bbb227b2613ea7977&libraries=services&autoload=false"></script>
+    <script src="js/record-mood.js" defer></script>
     <script src="js/script.js" defer></script>
   </head>
   <body>
     <div class="layout">
-      <header class="header">
-        <div class="header-container">
-          <a href="home.html">
-            <div class="logo">
-              <img src="assets/icons/header-logo.svg" alt="" />
-            </div>
-          </a>
+      <div class="header">
+        <div class="header-contents">
+          <div type="button" class="back-btn" id="backBtn">
+            <i class="fa-solid fa-angle-left"></i>
+          </div>
+          <div class="header-title">
+            <p>무드 기록하기</p>
+          </div>
           <div class="user-menu">
             <a href="">
               <div class="searchicon">
-                <img src="assets/icons/search.png" alt="" /></div
+                <i class="fa-solid fa-magnifying-glass"></i></div
             ></a>
-            <a href=""><img src="assets/icons/alram.png" alt="" /></a>
+            <a href=""><i class="fa-regular fa-bell"></i></a>
           </div>
         </div>
-      </header>
-      <main class="container">
-        <!-- 배너 부분 -->
-        <div class="home-container">
-          <div class="banner-swiper-wrap">
-            <div class="swiper banner-swiper">
-              <div class="swiper-wrapper home-banner">
-                <div class="swiper-slide">
-                  <h2 class="banner-title">
-                    좋았던 기억의 장소를 <br />
-                    다른 사용자들에게 추천해보세요
-                  </h2>
-                  <img src="assets/images/banner-img-1.png" alt="" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="assets/images/banner-img-1.png" alt="" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="assets/images/banner-img-1.png" alt="" />
-                </div>
+      </div>
+      <!-- 무드 기록 -->
+      <section class="record-mood">
+        <div class="container">
+          <div class="record-title">
+            <p class="title">무드 선택하기</p>
+          </div>
+          <div class="choose-mood-container">
+            <div class="choose-mood-box">
+              <div class="choose-mood active">
+                <img src="assets/icons/svg/happy.svg" alt="" />
               </div>
-              <!-- <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div> -->
-              <div class="swiper-pagination"></div>
+              <div class="choose-mood">
+                <img src="assets/icons/svg/peace.svg" alt="" />
+              </div>
+              <div class="choose-mood">
+                <img src="assets/icons/svg/calm.svg" alt="" />
+              </div>
+              <div class="choose-mood">
+                <img src="assets/icons/svg/sad.svg" alt="" />
+              </div>
+              <div class="choose-mood">
+                <img src="assets/icons/svg/angry.svg" alt="" />
+              </div>
             </div>
           </div>
-          <section class="record-mood-container">
-            <div class="mood-archive-btn" id="moodArchiveBtn">
-              <div class="mood-archive-text btn-text">
-                <p class="title">무드 아카이브</p>
-                <p class="sub-title">내가 기록했던 장소의 감정을 모아보세요</p>
-              </div>
-              <div class="card-container" id="cardAnimation">
-                <img
-                  src="assets/icons/mood-archive-card-3.svg"
-                  alt=""
-                  class="card card3"
-                />
-                <img
-                  src="assets/icons/mood-archive-card-2.svg"
-                  alt=""
-                  class="card card2"
-                />
-                <img
-                  src="assets/icons/mood-archive-card-1.svg"
-                  alt=""
-                  class="card card1"
-                />
-              </div>
-            </div>
-            <div class="mood-record-btn">
-              <div class="mood-archive-text btn-text">
-                <p class="title">무드 기록하기</p>
-                <p class="sub-title">
-                  지금 장소에서 느낀 감정을 자유롭게 적어보세요
-                </p>
-                <div class="mood-record-img">
-                  <img src="assets/icons/feel-peace.svg" alt="" />
-                  <img src="assets/icons/feel-happy.svg" alt="" />
-                  <img src="assets/icons/mood-charater.svg" alt="" />
-                </div>
-              </div>
-              <div class="card-container" id="cardAnimation"></div>
-            </div>
-          </section>
-          <section class="recommend-place-container">
-            <div class="place-title-top">
-              <h3 class="title">주변 추천 플레이스</h3>
-              <a href="/recommend-place.html"
-                ><i class="fa-solid fa-angle-right"></i
-              ></a>
-            </div>
-            <div class="place-title-botom">
-              <span class="sub-title"
-                >다른 사람들이 남긴 장소와 감정을 공유해보세요
-              </span>
-            </div>
-            <div class="place-preview"></div>
-          </section>
-          <div class="mood-community"></div>
+          <!-- 무드기록창 -->
+          <div class="input-box">
+            <label for="moodText" class="input-label"
+              >지금 장소에서 느낌 감정을 남겨보세요
+            </label>
 
-          <!-- <button class="btn">로그인 하기</button> -->
+            <textarea
+              id="moodText"
+              class="typing-area"
+              placeholder="이 장소에서 느낀 감정을 기록해보세요."
+            ></textarea>
+          </div>
+
+          <!-- 주소 검색 -->
+          <div class="place-search-wrap">
+            <span>현재 장소를 추가하세요!</span>
+            <input type="text" id="keyword" placeholder="장소명을 검색하세요" />
+
+            <button id="searchBtn">검색</button>
+
+            <ul id="placeList"></ul>
+
+            <div class="selected-place">
+              <p id="placeName">선택된 장소 없음</p>
+              <span id="placeAddress"></span>
+            </div>
+          </div>
+
+          <div class="photo-section">
+            <div class="photo-header">
+              <div class="photo-text-top">
+                <h3>사진 첨부 <span>(선택)</span></h3>
+              </div>
+              <div class="photo-text-bottom">
+                <p>
+                  사진 최대 6개까지 업로드 가능<br />
+                  (사진 1개당 10MB 이하)
+                </p>
+                <label for="photoInput" class="photo-add-btn">
+                  <img src="assets/icons/svg/add_photo.svg" alt="" />
+                  <p>사진 추가</p>
+                </label>
+
+                <input
+                  type="file"
+                  id="photoInput"
+                  accept="image/*"
+                  multiple
+                  hidden
+                />
+              </div>
+            </div>
+
+            <div class="photo-grid" id="photoGrid">
+              <div class="photo-box"></div>
+              <div class="photo-box"></div>
+              <div class="photo-box"></div>
+              <div class="photo-box"></div>
+              <div class="photo-box"></div>
+              <div class="photo-box"></div>
+            </div>
+          </div>
+
+          <div class="date-text"></div>
         </div>
-      </main>
+      </section>
+      <div class="bottom-nav">
+        <div class="bottom-nav-container">
+          <a href="/home.html">
+            <div class="nav-item">
+              <img src="assets/icons/svg/dis-home.svg" alt="홈 비활성화" />
+              <span>홈</span>
+            </div>
+          </a>
+          <a href="/mood-music.html">
+            <div class="nav-item">
+              <img
+                src="assets/icons/svg/dis-music.svg"
+                alt="무드뮤직 비활성화"
+              />
+              <span>무드뮤직</span>
+            </div>
+          </a>
+          <a href="/record-mood.html">
+            <div class="nav-item">
+              <img
+                src="assets/icons/svg/dis-record.svg"
+                alt="무드기록 비활성화"
+              />
+              <span>무드기록</span>
+            </div>
+          </a>
+          <a href="/mood-archive.html">
+            <div class="nav-item">
+              <img
+                src="assets/icons/svg/dis-archive.svg"
+                alt="아카이브 비활성화"
+              />
+              <span>아카이브</span>
+            </div>
+          </a>
+          <a href="/mypage.html">
+            <div class="nav-item">
+              <img
+                src="assets/icons/svg/dis-mypage.svg"
+                alt="마이페이지 비활성화"
+              />
+              <span class="nav-text">마이페이지</span>
+            </div>
+          </a>
+        </div>
+      </div>
       <footer class="footer"></footer>
     </div>
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-    <script src="app.js"></script>
+    <!-- <script src="app.js"></script> -->
   </body>
 </html>

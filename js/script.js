@@ -34,10 +34,23 @@ document.addEventListener("DOMContentLoaded", () => {
         prevEl: ".swiper-button-prev",
       },
       autoplay: {
-        delay: 3000,
+        delay: 300000,
         disableOnInteraction: false,
         pauseOnMouseEnter: true,
       },
     });
   }
 });
+
+// 뒤로가기 버튼 기록
+const backBtn = document.getElementById("backBtn");
+
+if (backBtn) {
+  backBtn.addEventListener("click", () => {
+    if (window.history.length > 1) {
+      history.back();
+    } else {
+      window.location.href = "/home.html";
+    }
+  });
+}

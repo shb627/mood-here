@@ -64,44 +64,16 @@
   --spacing-24: 24px;
 
   /* Font Size */
-  --font-xs: 12px;
-  --font-sm: 14px;
-  --font-md: 16px;
-  --font-lg: 18px;
-  --font-xl: 20px;
-  --font-2xl: 22px;
-  --font-3xl: 24px;
-  --font-4xl: 28px;
-  --font-5xl: 36px;
-  --font-6xl: 48px;
-
-  @media screen and (min-width: 768px) {
-    :root {
-      --font-sm: 15px;
-      --font-md: 17px;
-      --font-lg: 20px;
-      --font-xl: 22px;
-      --font-2xl: 26px;
-      --font-3xl: 30px;
-      --font-4xl: 36px;
-      --font-5xl: 44px;
-      --font-6xl: 56px;
-    }
-  }
-
-  @media screen and (min-width: 1024px) {
-    :root {
-      --font-sm: 16px;
-      --font-md: 18px;
-      --font-lg: 22px;
-      --font-xl: 24px;
-      --font-2xl: 28px;
-      --font-3xl: 32px;
-      --font-4xl: 40px;
-      --font-5xl: 52px;
-      --font-6xl: 64px;
-    }
-  }
+  --font-12: 12px;
+  --font-14: 14px;
+  --font-16: 16px;
+  --font-18: 18px;
+  --font-20: 20px;
+  --font-22: 22px;
+  --font-24: 24px;
+  --font-28: 28px;
+  --font-36: 36px;
+  --font-48: 48px;
 
   /* System Token */
   /* Background */
@@ -158,7 +130,7 @@ html {
 }
 body {
   overflow-x: hidden;
-  background-color: #ffff;
+  background-color: var(--white);
   font-family: "Pretendard", sans-serif;
   font-size: 16px;
   line-height: 36px;
@@ -169,7 +141,7 @@ body {
 section {
   width: 100%;
   display: flex;
-  padding: 20px 0;
+  padding: 80px 0;
 }
 ul,
 li {
@@ -208,8 +180,8 @@ button:focus-visible {
 }
 .title {
   /* padding: 0 0 8px 0; */
-  font-size: var(--font-lg);
-  font-weight: 700;
+  font-size: var(--font-16);
+  font-weight: 600;
 }
 .sub-title {
   font-size: 14px;
@@ -298,6 +270,7 @@ input {
 /* 비활성 상태 */
 button:disabled {
   cursor: not-allowed;
+
   opacity: 0.5;
 }
 
@@ -306,7 +279,7 @@ button:disabled {
 .layout {
   position: relative;
   width: 100%;
-  /* min-height: 100vh; */
+  min-height: 100vh;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -315,50 +288,61 @@ button:disabled {
   position: relative;
   width: 100%;
   max-width: var(--container-max);
-  display: flex;
-  align-items: flex-start;
-  flex: 1;
-  /* justify-content: center; */
-  flex-direction: column;
-  margin-top: 52px;
+  /* flex: 1; */
   padding: 0 16px;
-  background-color: #f7f7f7;
+  background-color: var(--white);
 }
+
+/* 스플래쉬 */
+.onboarding-logo-wrap {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
 .top {
   width: 100%;
   height: 44px;
 }
+.home {
+  width: 100%;
+  display: flex;
+  padding-top: 80px;
+  padding-bottom: 140px;
+}
 .header {
+  width: 100%;
   position: fixed;
   top: 0;
-  right: 0;
-  left: 0;
-  width: 100%;
   max-width: var(--container-max);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0 16px;
-  padding-top: env(safe-area-inset-top);
-  z-index: 2;
+  padding: 16px 16px;
+  border-bottom: 1px solid var(--gray-200);
+  /* padding-top: env(safe-area-inset-top); */
+  z-index: 100;
   background-color: var(--white);
 }
-.header-container {
+
+.header-contents {
   width: 100%;
   max-width: var(--container-max);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 8px;
+  padding: 0 0;
+}
+.back-btn {
+  width: 24px;
+  height: 24px;
+  display: flex;
 }
 .header-title {
-  width: 100%;
   display: flex;
   justify-content: center;
   text-align: center;
 }
 .header .logo {
-  width: 200px;
+  width: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -373,9 +357,8 @@ button:disabled {
   gap: var(--spacing-8);
   flex-direction: row;
 }
-.user-menu .searchicon {
-}
-.user-menu .searchicon img {
+.fa-bell {
+  font-size: 18px;
 }
 
 .card-container {
@@ -771,6 +754,18 @@ button {
 
 /* 반응형 */
 @media screen and (min-width: 768px) {
+  :root {
+    --font-sm: 15px;
+    --font-md: 17px;
+    --font-lg: 20px;
+    --font-xl: 22px;
+    --font-2xl: 26px;
+    --font-3xl: 30px;
+    --font-4xl: 36px;
+    --font-5xl: 44px;
+    --font-6xl: 56px;
+  }
+
   .container {
     width: 100%;
     display: flex;
@@ -779,15 +774,7 @@ button {
     flex-direction: column;
     padding: 0 24px;
   }
-  .header {
-    width: 100%;
-    max-width: var(--container-max);
-    height: var(--header-h-mobile);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 24px;
-  }
+
   .button {
     width: 100%;
     padding-right: 24px;
@@ -814,23 +801,28 @@ button {
 
 /* desktop */
 @media screen and (min-width: 1024px) {
+  :root {
+    --font-sm: 16px;
+    --font-md: 18px;
+    --font-lg: 22px;
+    --font-xl: 24px;
+    --font-2xl: 28px;
+    --font-3xl: 32px;
+    --font-4xl: 40px;
+    --font-5xl: 52px;
+    --font-6xl: 64px;
+  }
+
   .container {
     max-width: 100%;
     display: flex;
+    flex: 1;
     align-items: center;
     /* justify-content: center; */
     flex-direction: column;
     padding: 0 40px;
   }
-  .header {
-    width: 100%;
-    max-width: var(--container-max);
-    height: var(--header-h-mobile);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 40px;
-  }
+
   .wrap-column {
     width: 100%;
   }

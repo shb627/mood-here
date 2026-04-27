@@ -5,5 +5,5 @@ import { passwordConfirm } from "./js/signup.js";
 
 window.addEventListener("load", () => {
   passwordConfirm();
-  cardAnimation;
+  cardAnimation();
 });
