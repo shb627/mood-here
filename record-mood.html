@@ -47,20 +47,20 @@
           </div>
           <div class="choose-mood-container">
             <div class="choose-mood-box">
-              <div class="choose-mood active">
-                <img src="assets/icons/svg/happy.svg" alt="" />
+              <div class="choose-mood active happy">
+                <img src="assets/icons/svg/feel-happy.png" alt="" />
               </div>
               <div class="choose-mood">
-                <img src="assets/icons/svg/peace.svg" alt="" />
+                <img src="assets/icons/svg/peace.png" alt="" />
               </div>
               <div class="choose-mood">
                 <img src="assets/icons/svg/calm.svg" alt="" />
               </div>
               <div class="choose-mood">
-                <img src="assets/icons/svg/sad.svg" alt="" />
+                <img src="assets/icons/svg/sad.png" alt="" />
               </div>
               <div class="choose-mood">
-                <img src="assets/icons/svg/angry.svg" alt="" />
+                <img src="assets/icons/svg/" alt="" />
               </div>
             </div>
           </div>
@@ -79,23 +79,31 @@
 
           <!-- 주소 검색 -->
           <div class="place-search-wrap">
-            <span>현재 장소를 추가하세요!</span>
-            <input type="text" id="keyword" placeholder="장소명을 검색하세요" />
+            <span>위치 검색하기</span>
+            <div class="search-container">
+              <input
+                type="text"
+                id="keyword"
+                class="search-place-input"
+                placeholder="내가 있는 장소의 이름을 검색해보세요!"
+              />
 
-            <button id="searchBtn">검색</button>
+              <button class="search-place-btn" id="searchBtn">검색</button>
+            </div>
 
             <ul id="placeList"></ul>
-
-            <div class="selected-place">
-              <p id="placeName">선택된 장소 없음</p>
-              <span id="placeAddress"></span>
+            <div class="selected-place-container">
+              <div class="selected-place">
+                <p class="place-name" id="placeName"></p>
+                <span class="place-address" id="placeAddress"></span>
+              </div>
             </div>
           </div>
 
           <div class="photo-section">
             <div class="photo-header">
               <div class="photo-text-top">
-                <h3>사진 첨부 <span>(선택)</span></h3>
+                <p>사진 첨부 <span>(선택)</span></p>
               </div>
               <div class="photo-text-bottom">
                 <p>
@@ -126,19 +134,31 @@
               <div class="photo-box"></div>
             </div>
           </div>
+          <!-- 모달 -->
+          <!-- <button id="openModal">모달 열기</button> -->
 
-          <div class="date-text"></div>
+          <!-- 모달 -->
+          <div class="modal" id="modal">
+            <div class="modal-content">
+              <button class="close-btn" id="closeModal">✕</button>
+              <h2>무드 기록 완료!</h2>
+              <p>오늘의 감정이 저장되었습니다.</p>
+            </div>
+          </div>
+          <button class="save-mood btn" id="saveMoodBtn">저장하기</button>
+          <footer class="footer">sdsds</footer>
         </div>
       </section>
+
       <div class="bottom-nav">
         <div class="bottom-nav-container">
-          <a href="/home.html">
+          <a href="home.html">
             <div class="nav-item">
               <img src="assets/icons/svg/dis-home.svg" alt="홈 비활성화" />
               <span>홈</span>
             </div>
           </a>
-          <a href="/mood-music.html">
+          <a href="mood-music.html">
             <div class="nav-item">
               <img
                 src="assets/icons/svg/dis-music.svg"
@@ -147,7 +167,7 @@
               <span>무드뮤직</span>
             </div>
           </a>
-          <a href="/record-mood.html">
+          <a href="record-mood.html">
             <div class="nav-item">
               <img
                 src="assets/icons/svg/dis-record.svg"
@@ -156,7 +176,7 @@
               <span>무드기록</span>
             </div>
           </a>
-          <a href="/mood-archive.html">
+          <a href="mood-archive.html">
             <div class="nav-item">
               <img
                 src="assets/icons/svg/dis-archive.svg"
@@ -165,7 +185,7 @@
               <span>아카이브</span>
             </div>
           </a>
-          <a href="/mypage.html">
+          <a href="mypage.html">
             <div class="nav-item">
               <img
                 src="assets/icons/svg/dis-mypage.svg"
@@ -176,7 +196,6 @@
           </a>
         </div>
       </div>
-      <footer class="footer"></footer>
     </div>
 
     <!-- Swiper JS -->

@@ -22,66 +22,64 @@
   </head>
   <body>
     <div class="layout">
-      <div class="container">
-        <header class="header">
-          <div class="header-container">
-            <button type="button" class="back-btn" id="backBtn">
-              <i class="fa-solid fa-angle-left"></i>
-            </button>
-            <div class="header-title">이 장소의 플레이리스트</div>
-
-            <div class="user-menu">
-              <a href="">
-                <div class="searchicon">
-                  <img src="assets/icons/search.png" alt="" /></div
-              ></a>
-              <a href=""><img src="assets/icons/alram.png" alt="" /></a>
-            </div>
+      <div class="header">
+        <div class="header-contents">
+          <div type="button" class="back-btn" id="backBtn">
+            <i class="fa-solid fa-angle-left"></i>
           </div>
-        </header>
+          <div class="header-title">
+            <p>무드 뮤직</p>
+          </div>
+          <div class="user-menu">
+            <a href="">
+              <div class="searchicon">
+                <i class="fa-solid fa-magnifying-glass"></i></div
+            ></a>
+            <a href=""><i class="fa-regular fa-bell"></i></a>
+          </div>
+        </div>
       </div>
-
-      <!-- main -->
-      <div class="container">
-        <main class="muisc-page-container">
-          <div class="player-container" id="player">
-            <div class="album-container">
-              <img src="assets/images/full-bloom-album.jpg" alt="" />
-            </div>
-
-            <div class="music-title"><h3>사라진 기억</h3></div>
-            <div class="music-singer"><span>펀치</span></div>
-            <!-- Visualizer -->
-            <!-- <div class="visualizer" id="visualizer"> -->
-            <!-- bars inserted by JS -->
-            <!-- </div> -->
-
-            <div class="progress-section">
-              <div class="progress-bar" id="progressBar">
-                <div class="progress-fill" id="progressFill"></div>
+      <section>
+        <div class="container">
+          <main class="muisc-page-container">
+            <div class="player-container" id="player">
+              <div class="album-container">
+                <img src="assets/images/full-bloom-album.jpg" alt="" />
               </div>
-              <div class="time-labels">
-                <span id="currentTime">0:00</span>
-                <span id="totalTime">0:00</span>
+
+              <div class="music-title"><h3>사라진 기억</h3></div>
+              <div class="music-singer"><span>펀치</span></div>
+              <!-- Visualizer -->
+              <!-- <div class="visualizer" id="visualizer"> -->
+              <!-- bars inserted by JS -->
+              <!-- </div> -->
+
+              <div class="progress-section">
+                <div class="progress-bar" id="progressBar">
+                  <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="time-labels">
+                  <span id="currentTime">0:00</span>
+                  <span id="totalTime">0:00</span>
+                </div>
               </div>
-            </div>
 
-            <div class="controls">
-              <button class="ctrl-btn" id="prevBtn" title="이전">
-                <i class="fa-solid fa-angles-left"></i>
-              </button>
-              <i
-                class="fa-solid fa-circle-play play-btn"
-                id="playBtn"
-                title="재생"
-              ></i>
-              <!-- <i class="fa-solid fa-circle-pause"></i> -->
-              <button class="ctrl-btn" id="nextBtn" title="다음">
-                <i class="fa-solid fa-angles-right"></i>
-              </button>
-            </div>
+              <div class="controls">
+                <button class="ctrl-btn" id="prevBtn" title="이전">
+                  <i class="fa-solid fa-angles-left"></i>
+                </button>
+                <i
+                  class="fa-solid fa-circle-play play-btn"
+                  id="playBtn"
+                  title="재생"
+                ></i>
+                <!-- <i class="fa-solid fa-circle-pause"></i> -->
+                <button class="ctrl-btn" id="nextBtn" title="다음">
+                  <i class="fa-solid fa-angles-right"></i>
+                </button>
+              </div>
 
-            <!-- <div class="volume-section">
+              <!-- <div class="volume-section">
             <span class="vol-icon">🔈</span>
             <input
               type="range"
@@ -94,29 +92,30 @@
             />
             <span class="vol-icon">🔊</span>
           </div> -->
-          </div>
-          <div class="music-memo">
-            <div class="location-card">
-              <div class="location-date-container">
-                <div class="location-date">2026.06.27</div>
-                <img
-                  src="assets/icons/feel-peace.svg"
-                  class="location-date-img"
-                  alt=""
-                />
-              </div>
-              <div class="location-name">스타벅스 대구중앙로역점</div>
             </div>
+            <div class="music-memo">
+              <div class="location-card">
+                <div class="location-date-container">
+                  <div class="location-date">2026.06.27</div>
+                  <img
+                    src="assets/icons/feel-peace.svg"
+                    class="location-date-img"
+                    alt=""
+                  />
+                </div>
+                <div class="location-name">스타벅스 대구중앙로역점</div>
+              </div>
 
-            <div class="memo-contianer">
-              <div class="memo-text">
-                오늘도 평범한 하루를 보내고 커피 한 잔하며<br />하루를 마무리
-                했다~
+              <div class="memo-contianer">
+                <div class="memo-text">
+                  오늘도 평범한 하루를 보내고 커피 한 잔하며<br />하루를 마무리
+                  했다~
+                </div>
               </div>
             </div>
-          </div>
-        </main>
-      </div>
+          </main>
+        </div>
+      </section>
       <div class="bottom-nav">
         <div class="bottom-nav-container">
           <a href="/home.html">

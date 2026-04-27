@@ -1,3 +1,19 @@
+document.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", function (e) {
+    const href = this.getAttribute("href");
+
+    if (!href || href.startsWith("#")) return;
+
+    e.preventDefault();
+
+    document.body.classList.add("fade-out");
+
+    setTimeout(() => {
+      window.location.href = href;
+    }, 100);
+  });
+});
+
 function initOnboardingSwiper() {
   const onboardingEl = document.querySelector(".onboarding-swiper");
 
@@ -50,7 +66,23 @@ if (backBtn) {
     if (window.history.length > 1) {
       history.back();
     } else {
-      window.location.href = "/home.html";
+      window.location.href = "home.html";
     }
   });
 }
+
+//바텀 네비게이션 로고 색상 변경
+document.addEventListener("DOMContentLoaded", () => {
+  const currentPage = window.location.pathname.split("/").pop();
+
+  const navLinks = document.querySelectorAll(".bottom-nav a");
+
+  navLinks.forEach((link) => {
+    if (link.dataset.page === currentPage) {
+      link.classList.add("active");
+
+      const img = link.querySelector("img");
+      img.src = img.src.replace("dis-", "");
+    }
+  });
+});
