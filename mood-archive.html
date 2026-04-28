@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>mood here</title>
+    <link rel="icon" href="assets/icons/svg/moodhere-fabicon.ico" />
+
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/moodarchive.css" />
 
@@ -17,8 +19,8 @@
       href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
     />
     <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=c363676500da135bbb227b2613ea7977&libraries=services&autoload=false"></script>
-    <script src="js/archiveMood.js" defer></script>
-    <script src="js/script.js" defer></script>
+    <script src="js/pages/moodArchive.js" defer></script>
+    <script src="js/pages/script.js" defer></script>
   </head>
   <body>
     <div class="layout">
@@ -44,79 +46,83 @@
         <!-- <div class="map">
           <img src="assets/images/map-img.png" alt="" />
         </div> -->
+        <button id="currentLocationBtn" class="current-location-btn">
+          현재위치
+        </button>
+        <!-- <img src="assets/icons/svg/peace.png" alt="" class="archive-icon" /> -->
 
         <div id="map"></div>
 
-        <div class="bottom-sheet" id="sheet">
-          <h3 id="title">장소명</h3>
-          <p id="desc">오늘 기분이 좋았던 장소</p>
-        </div>
+        <!-- 바텀시트 -->
         <div class="container">
           <div class="bottom-sheet" id="bottomSheet">
-            <div class="sheet-handle"></div>
+            <div class="bottom-sheet-handle"></div>
 
-            <div class="sheet-content">
-              <h3>써브웨이 반월당역점</h3>
-              <p class="sheet-date">2026.04.27</p>
-              <p>
-                오늘 이 장소에서 기분이 좋았고, 다시 오고 싶은 기억으로 남았다.
-              </p>
+            <div class="bottom-sheet-content">
+              <div class="archive-header">
+                <div class="archive-header-title">
+                  <h3>2026.04.28</h3>
+                  <h3 class="archive-place-name">교보문고 대구점</h3>
+                </div>
+                <div class="selected-mood">
+                  <img src="assets/icons/svg/calm.png" alt="" />
+                </div>
+              </div>
+              <div class="place-card">
+                <p class="place-title">
+                  오늘은 우울했는데 친구를 만나 커피를 한잔하니 스트레스가 많이
+                  풀리는 날이였다
+                </p>
+              </div>
 
-              <div class="dummy-content">
-                <p>내용이 길어지면 여기서 스크롤됩니다.</p>
-                <p>사진, 감정 기록, 플레이리스트 등을 넣을 수 있어요.</p>
-                <p>추가 내용...</p>
-                <p>추가 내용...</p>
-                <p>추가 내용...</p>
+              <div class="place-card">
+                <p class="place-title">중앙로역 근처</p>
+                <p class="place-desc">조금 피곤했지만 산책하기 좋았던 장소.</p>
+              </div>
+
+              <div class="place-card">
+                <p class="place-title">카페 무드</p>
+                <p class="place-desc">기록된 감정과 음악을 확인할 수 있어요.</p>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <footer class="footer">sdsds</footer>
 
       <div class="bottom-nav">
         <div class="bottom-nav-container">
-          <a href="home.html">
+          <a href="home.html" data-page="home.html">
             <div class="nav-item">
-              <img src="assets/icons/svg/dis-home.svg" alt="홈 비활성화" />
+              <img src="assets/icons/svg/dis-home.svg" />
               <span>홈</span>
             </div>
           </a>
-          <a href="mood-music.html">
+
+          <a href="mood-music.html" data-page="mood-music.html">
             <div class="nav-item">
-              <img
-                src="assets/icons/svg/dis-music.svg"
-                alt="무드뮤직 비활성화"
-              />
+              <img src="assets/icons/svg/dis-music.svg" />
               <span>무드뮤직</span>
             </div>
           </a>
-          <a href="record-mood.html">
+
+          <a href="record-mood.html" data-page="record-mood.html">
             <div class="nav-item">
-              <img
-                src="assets/icons/svg/dis-record.svg"
-                alt="무드기록 비활성화"
-              />
+              <img src="assets/icons/svg/dis-record.svg" />
               <span>무드기록</span>
             </div>
           </a>
-          <a href="mood-archive.html">
+
+          <a href="mood-archive.html" data-page="mood-archive.html">
             <div class="nav-item">
-              <img
-                src="assets/icons/svg/dis-archive.svg"
-                alt="아카이브 비활성화"
-              />
+              <img src="assets/icons/svg/dis-archive.svg" />
               <span>아카이브</span>
             </div>
           </a>
-          <a href="mypage.html">
+
+          <a href="mypage.html" data-page="mypage.html">
             <div class="nav-item">
-              <img
-                src="assets/icons/svg/dis-mypage.svg"
-                alt="마이페이지 비활성화"
-              />
-              <span class="nav-text">마이페이지</span>
+              <img src="assets/icons/svg/dis-mypage.svg" />
+              <span>마이페이지</span>
             </div>
           </a>
         </div>

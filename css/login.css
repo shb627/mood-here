@@ -1,0 +1,23 @@
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  height: 48px;
+  /* padding: var(--spacing-16) var(--spacing-12); */
+
+  border: none;
+  background: none;
+  border: 1px solid var(--green-500);
+  background-color: var(--green-400);
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  cursor: pointer;
+  /* 기본 스타일 제거 */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: var(--spacing-12);
+}

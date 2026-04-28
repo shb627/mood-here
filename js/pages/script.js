@@ -14,23 +14,8 @@ document.querySelectorAll("a").forEach((link) => {
   });
 });
 
-function initOnboardingSwiper() {
-  const onboardingEl = document.querySelector(".onboarding-swiper");
-
-  if (onboardingEl && typeof Swiper !== "undefined") {
-    new Swiper(".onboarding-swiper", {
-      spaceBetween: 12,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-    });
-  }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  initOnboardingSwiper();
-
+// 배너 스와이퍼
+function initBannerSwiper() {
   const bannerEl = document.querySelector(".banner-swiper");
 
   if (bannerEl && typeof Swiper !== "undefined") {
@@ -38,24 +23,45 @@ document.addEventListener("DOMContentLoaded", () => {
       loop: true,
       slidesPerView: 1,
       spaceBetween: 0,
-      keyboard: {
-        enabled: true,
-      },
+
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
       },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
+
       autoplay: {
-        delay: 300000,
+        delay: 3000,
         disableOnInteraction: false,
         pauseOnMouseEnter: true,
       },
     });
   }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initBannerSwiper();
+
+  // 바텀 네비 활성화
+  let currentPage = window.location.pathname.split("/").pop();
+
+  if (!currentPage || currentPage === "index.html") {
+    currentPage = "home.html";
+  }
+
+  const navLinks = document.querySelectorAll(".bottom-nav a");
+
+  navLinks.forEach((link) => {
+    const targetPage = link.dataset.page;
+    const img = link.querySelector("img");
+
+    if (targetPage === currentPage) {
+      link.classList.add("active");
+
+      if (img) {
+        img.src = img.src.replace("dis-", "act-");
+      }
+    }
+  });
 });
 
 // 뒤로가기 버튼 기록
@@ -73,16 +79,27 @@ if (backBtn) {
 
 //바텀 네비게이션 로고 색상 변경
 document.addEventListener("DOMContentLoaded", () => {
-  const currentPage = window.location.pathname.split("/").pop();
+  let currentPage = window.location.pathname.split("/").pop();
+
+  if (!currentPage || currentPage === "index.html") {
+    currentPage = "home.html";
+  }
+
+  console.log(currentPage);
 
   const navLinks = document.querySelectorAll(".bottom-nav a");
 
   navLinks.forEach((link) => {
-    if (link.dataset.page === currentPage) {
+    const targetPage = link.dataset.page;
+    const img = link.querySelector("img");
+
+    if (targetPage === currentPage) {
       link.classList.add("active");
 
-      const img = link.querySelector("img");
-      img.src = img.src.replace("dis-", "");
+      if (img) {
+        const src = img.getAttribute("src");
+        img.src = src.replace("dis-", "act-");
+      }
     }
   });
 });

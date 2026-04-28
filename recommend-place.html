@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>mood here</title>
+    <link rel="icon" href="assets/icons/svg/moodhere-fabicon.ico" />
 
     <link rel="stylesheet" href="css/recommend-place.css" />
     <link rel="stylesheet" href="css/style.css" />
@@ -16,7 +17,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
     />
-    <script src="js/script.js" defer></script>
+    <script src="js/pages/script.js" defer></script>
   </head>
   <body>
     <div class="layout">
@@ -159,46 +160,38 @@
       </section>
       <div class="bottom-nav">
         <div class="bottom-nav-container">
-          <a href="home.html">
+          <a href="home.html" data-page="home.html">
             <div class="nav-item">
-              <img src="assets/icons/svg/dis-home.svg" alt="홈 비활성화" />
+              <img src="assets/icons/svg/dis-home.svg" />
               <span>홈</span>
             </div>
           </a>
-          <a href="mood-music.html">
+
+          <a href="mood-music.html" data-page="mood-music.html">
             <div class="nav-item">
-              <img
-                src="assets/icons/svg/dis-music.svg"
-                alt="무드뮤직 비활성화"
-              />
+              <img src="assets/icons/svg/dis-music.svg" />
               <span>무드뮤직</span>
             </div>
           </a>
-          <a href="mood-music.html">
+
+          <a href="record-mood.html" data-page="record-mood.html">
             <div class="nav-item">
-              <img
-                src="assets/icons/svg/dis-record.svg"
-                alt="무드기록 비활성화"
-              />
+              <img src="assets/icons/svg/dis-record.svg" />
               <span>무드기록</span>
             </div>
           </a>
-          <a href="record-mood.html">
+
+          <a href="mood-archive.html" data-page="mood-archive.html">
             <div class="nav-item">
-              <img
-                src="assets/icons/svg/dis-archive.svg"
-                alt="아카이브 비활성화"
-              />
+              <img src="assets/icons/svg/dis-archive.svg" />
               <span>아카이브</span>
             </div>
           </a>
-          <a href="mood-music.html">
+
+          <a href="mypage.html" data-page="mypage.html">
             <div class="nav-item">
-              <img
-                src="assets/icons/svg/dis-mypage.svg"
-                alt="마이페이지 비활성화"
-              />
-              <span class="nav-text">마이페이지</span>
+              <img src="assets/icons/svg/dis-mypage.svg" />
+              <span>마이페이지</span>
             </div>
           </a>
         </div>
@@ -208,6 +201,6 @@
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-    <script src="app.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
