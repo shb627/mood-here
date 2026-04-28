@@ -1,9 +1,110 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>무드히어 감정기록 서비스</title>
+    <link rel="icon" href="assets/icons/svg/moodhere-fabicon.ico" />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/mypage.css" />
+    <script
+      src="https://kit.fontawesome.com/bd66e01c7b.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="js/pages/script.js" defer></script>
+    <script src="js/pages/myPage.js"></script>
   </head>
-  <body></body>
+  <body>
+    <div class="layout">
+      <div class="header">
+        <div class="header-contents">
+          <div type="button" class="back-btn" id="backBtn">
+            <i class="fa-solid fa-angle-left"></i>
+          </div>
+          <div class="header-title">
+            <p>마이페이지</p>
+          </div>
+          <div class="user-menu">
+            <a href="">
+              <div class="searchicon">
+                <i class="fa-solid fa-magnifying-glass"></i></div
+            ></a>
+            <a href=""><i class="fa-regular fa-bell"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- 무드 기록 -->
+      <section class="record-mood">
+        <div class="container">
+          <div class="profile-edit">
+            <div class="profile-img-box">
+              <img
+                id="profilePreview"
+                class="profile-preview is-default"
+                src="assets/icons/svg/profile-none.svg"
+                alt="프로필 이미지"
+              />
+
+              <label for="profileInput" class="camera-btn">
+                <img
+                  src="assets/icons/svg/edit-profile-photo.svg"
+                  alt="프로필 사진 수정"
+                />
+              </label>
+
+              <input type="file" id="profileInput" accept="image/*" hidden />
+            </div>
+          </div>
+          <div class="user-name"><span>김민수</span>님</div>
+
+          <div class="btn">프로필 수정하기</div>
+
+          <footer class="footer">sdsds</footer>
+        </div>
+      </section>
+
+      <div class="bottom-nav">
+        <div class="bottom-nav-container">
+          <a href="home.html" data-page="home.html">
+            <div class="nav-item">
+              <img src="assets/icons/svg/dis-home.svg" />
+              <span>홈</span>
+            </div>
+          </a>
+
+          <a href="mood-music.html" data-page="mood-music.html">
+            <div class="nav-item">
+              <img src="assets/icons/svg/dis-music.svg" />
+              <span>무드뮤직</span>
+            </div>
+          </a>
+
+          <a href="record-mood.html" data-page="record-mood.html">
+            <div class="nav-item">
+              <img src="assets/icons/svg/dis-record.svg" />
+              <span>무드기록</span>
+            </div>
+          </a>
+
+          <a href="mood-archive.html" data-page="mood-archive.html">
+            <div class="nav-item">
+              <img src="assets/icons/svg/dis-archive.svg" />
+              <span>아카이브</span>
+            </div>
+          </a>
+
+          <a href="mypage.html" data-page="mypage.html">
+            <div class="nav-item">
+              <img src="assets/icons/svg/dis-mypage.svg" />
+              <span>마이페이지</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- <script src="app.js"></script> -->
+  </body>
 </html>
