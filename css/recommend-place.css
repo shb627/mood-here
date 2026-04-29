@@ -56,19 +56,7 @@
   .intro {
     padding: 24px 24px 180px 24px;
   }
-  .bottom-nav {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 112px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 24px;
-    border-top: 1px solid #f0f0f0;
-    z-index: 2;
-    background: white;
-  }
+
   .place-card-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
