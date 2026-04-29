@@ -1,19 +1,3 @@
-document.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", function (e) {
-    const href = this.getAttribute("href");
-
-    if (!href || href.startsWith("#")) return;
-
-    e.preventDefault();
-
-    document.body.classList.add("fade-out");
-
-    setTimeout(() => {
-      window.location.href = href;
-    }, 100);
-  });
-});
-
 // 배너 스와이퍼
 function initBannerSwiper() {
   const bannerEl = document.querySelector(".banner-swiper");
@@ -65,17 +49,23 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // 뒤로가기 버튼 기록
-const backBtn = document.getElementById("backBtn");
+document.addEventListener("DOMContentLoaded", () => {
+  // 뒤로가기 버튼 — DOMContentLoaded 안으로 이동
+  const backBtn = document.getElementById("backBtn");
 
-if (backBtn) {
-  backBtn.addEventListener("click", () => {
-    if (window.history.length > 1) {
-      history.back();
-    } else {
-      window.location.href = "home.html";
-    }
-  });
-}
+  if (backBtn) {
+    backBtn.addEventListener("click", () => {
+      if (history.length > 1) {
+        history.back();
+      } else {
+        // 현재 경로 기준으로 home.html 상대경로 계산
+        const pathParts = location.pathname.split("/");
+        pathParts[pathParts.length - 1] = "home.html";
+        location.href = pathParts.join("/");
+      }
+    });
+  }
+});
 
 //바텀 네비게이션 로고 색상 변경
 document.addEventListener("DOMContentLoaded", () => {

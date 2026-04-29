@@ -33,48 +33,38 @@ section {
   display: block;
 }
 .current-location-btn {
-  position: absolute;
+  position: fixed;
   right: 16px;
-  bottom: 120px;
-  z-index: 10;
-
-  padding: 10px 14px;
-  border: none;
-  border-radius: 999px;
-
-  background: #fff;
-  color: #222;
-  font-size: 14px;
-  font-weight: 600;
-
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-  cursor: pointer;
+  bottom: calc(
+    var(--bottom-bar-h) + 45vh + 16px
+  ); /* 기본 바텀시트 높이 바로 위 */
+  z-index: 0; /* 바텀시트(z-index:1)보다 낮게 → expanded 시 가려짐 */
+  transition: bottom 0.3s ease;
 }
 
 /* 바텀시트 */
 .bottom-sheet {
-  position: absolute;
+  position: fixed; /* absolute → fixed */
   left: 0;
   right: 0;
   bottom: var(--bottom-bar-h);
 
-  height: 38vh;
-  z-index: 30;
+  height: 35vh;
+  z-index: 1;
 
   background: var(--gray-100);
   border-radius: 24px 24px 0 0;
   box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.12);
 
-  transform: translateY(0);
   transition: height 0.3s ease;
   overflow: hidden;
 }
 
 /* 펼쳐졌을 때 */
+
 .bottom-sheet.expanded {
   height: calc(100vh - var(--header-h-mobile) - var(--bottom-bar-h) - 8px);
 }
-
 /* 손잡이 */
 .bottom-sheet-handle {
   width: 44px;
@@ -95,7 +85,7 @@ section {
   justify-content: space-between;
   align-items: center;
   position: relative;
-  padding: 0 16px 12px;
+  padding: 0 4px 12px;
 }
 .archive-header-title {
   display: flex;
@@ -138,14 +128,76 @@ section {
 }
 
 .place-title {
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
   margin-bottom: 6px;
 }
 
 .place-desc {
   font-size: 14px;
   color: var(--gray-600);
+}
+
+.archive-photo-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 12px;
+}
+.photo-container {
+  display: flex;
+  flex: 1;
+  aspect-ratio: 1/1;
+  border-radius: var(--spacing-12);
+  overflow: hidden;
+}
+.archive-photo-container img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.archive-music {
+  padding-bottom: 16px;
+}
+.archive-music-card {
+  padding: 8px 12px;
+  border-radius: var(--spacing-12);
+  border: 1px solid var(--gray-200);
+  overflow: hidden;
+  display: flex;
+  gap: 24px;
+}
+.archive-music-card .album-left {
+  border-radius: var(--spacing-12);
+  overflow: hidden;
+  border: 1px solid var(--gray-200);
+  width: 50%;
+  aspect-ratio: 16/9;
+  display: flex;
+  flex: 1;
+}
+.archive-music-card .album-left img {
+  width: 100%;
+  object-fit: cover;
+}
+.archive-music-card .album-right {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.archive-music-card .album-right span {
+}
+
+.archive-playlist {
+  padding-bottom: 4px;
+}
+.archive-playlist .playlist-title {
+  padding-bottom: 8px;
+}
+.archive-music-playlist {
+  padding-bottom: 8px;
 }
 
 /* 반응형 */

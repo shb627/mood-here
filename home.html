@@ -7,8 +7,8 @@
 
     <link rel="icon" href="assets/icons/svg/moodhere-fabicon.ico" />
 
-    <link rel="stylesheet" href="css/home.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./css/home.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <script
       src="https://kit.fontawesome.com/bd66e01c7b.js"
       crossorigin="anonymous"
@@ -18,8 +18,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
     />
-    <script src="js/pages/home.js"></script>
-    <script src="js/pages/script.js" defer></script>
+    <script src="./js/pages/home.js"></script>
+    <script src="./js/pages/script.js" defer></script>
   </head>
   <body>
     <div class="layout">
@@ -30,13 +30,27 @@
               <img src="assets/icons/svg/header-logo.svg" alt="" />
             </div>
           </a>
-
-          <div class="user-menu">
+          <!-- 모바일/태블릿 -->
+          <div class="user-menu-mobile">
             <a href="">
               <div class="searchicon">
                 <i class="fa-solid fa-magnifying-glass"></i></div
             ></a>
-            <a href=""><i class="fa-regular fa-bell"></i></a>
+            <a href=""><i class="fa-solid fa-bell"></i></a>
+          </div>
+          <!-- 테스크탑 -->
+          <div class="user-menu-desktop">
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input
+                type="text"
+                class="search-input"
+                placeholder="검색어를 입력하세요"
+              />
+            </div>
+            <a href="login.html"><i class="fa-solid fa-circle-user"></i></a>
+
+            <a href=""><i class="fa-solid fa-bell"></i></a>
           </div>
         </div>
       </div>
@@ -95,16 +109,17 @@
               </div>
             </a>
             <a href="record-mood.html" class="mood-record-btn">
-              <div class="mood-archive-text btn-text">
+              <div class="mood-record-text btn-text">
                 <p class="title">무드 기록하기</p>
                 <p class="sub-title">
                   지금 장소에서 느낀 감정을 자유롭게 적어보세요
                 </p>
                 <div class="mood-record-img">
+                  <img src="assets/icons/svg/peace.png" alt="" />
+                  <img src="assets/icons/svg/feel-happy.png" alt="" />
                   <img src="assets/icons/svg/mood-charater.png" alt="" />
                 </div>
               </div>
-              <div class="card-container" id="cardAnimation"></div>
             </a>
           </div>
           <div class="recommend-place-container">
@@ -168,6 +183,6 @@
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-    <script type="module" src="js/app.js"></script>
+    <script type="module" src="./js/app.js"></script>
   </body>
 </html>

@@ -1,7 +1,3 @@
-setTimeout(() => {
-  location.href = "onboarding.html";
-}, 1500);
-
 window.onload = () => {
   if (window.innerWidth >= 1024) {
     // PC
