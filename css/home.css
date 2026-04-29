@@ -8,7 +8,7 @@
 /* 배너 */
 .banner-swiper-wrap {
   width: 100%;
-  padding: 20px 0;
+  padding: 4px 0 20px;
 }
 .swiper {
   width: 100%;
@@ -78,6 +78,7 @@
   position: relative;
   display: flex;
   gap: 8px;
+  padding-bottom: 12px;
 }
 .mood-archive-btn {
   position: relative;
@@ -239,9 +240,39 @@
   background-color: var(--green-400);
   border-radius: 100px;
 }
+.place-title-botom {
+  padding-bottom: 12px;
+}
 .place-preview {
 }
-.mood-community {
+.home-recommend-place {
+  padding-bottom: 16px;
+}
+.recommend-place-card {
+  padding: 8px 12px;
+  border-radius: var(--spacing-12);
+  border: 1px solid var(--gray-200);
+  overflow: hidden;
+  display: flex;
+  gap: 24px;
+}
+.recommend-place-card .place-left {
+  border-radius: var(--spacing-12);
+  overflow: hidden;
+  border: 1px solid var(--gray-200);
+  width: 50%;
+  aspect-ratio: 16/9;
+  display: flex;
+  flex: 1;
+}
+.recommend-place-card .place-left img {
+  width: 100%;
+  object-fit: cover;
+}
+.recommend-place-card .place-right {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }
 
 /* 반응형 */
