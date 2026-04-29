@@ -1,7 +1,6 @@
-import { cardAnimation } from "../home.js";
-import { passwordConfirm } from "../signup.js";
+import { authNumber, passwordConfirm } from "./pages/signup.js";
 
 window.addEventListener("load", () => {
   passwordConfirm();
-  cardAnimation();
+  authNumber();
 });

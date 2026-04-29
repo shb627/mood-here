@@ -6,8 +6,8 @@
     <title>mood here</title>
     <link rel="icon" href="assets/icons/svg/moodhere-fabicon.ico" />
 
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/moodarchive.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/moodarchive.css" />
 
     <script
       src="https://kit.fontawesome.com/bd66e01c7b.js"
@@ -19,8 +19,8 @@
       href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
     />
     <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=c363676500da135bbb227b2613ea7977&libraries=services&autoload=false"></script>
-    <script src="js/pages/moodArchive.js" defer></script>
-    <script src="js/pages/script.js" defer></script>
+    <script src="./js/pages/moodArchive.js" defer></script>
+    <script src="./js/pages/script.js" defer></script>
   </head>
   <body>
     <div class="layout">
@@ -30,14 +30,24 @@
             <i class="fa-solid fa-angle-left"></i>
           </div>
           <div class="header-title">
-            <p>무드 아카이브</p>
+            <p>무드 기록하기</p>
           </div>
-          <div class="user-menu">
+          <div class="user-menu-mobile">
+            <!-- <a href="">
+              <div class="searchicon">
+                <i class="fa-solid fa-magnifying-glass"></i></div
+            ></a>
+            <a href=""><i class="fa-solid fa-bell"></i></a> -->
+          </div>
+          <!-- 테스크탑 -->
+          <div class="user-menu-desktop">
+            <a href=""><i class="fa-solid fa-circle-user"></i></a>
+
             <a href="">
               <div class="searchicon">
                 <i class="fa-solid fa-magnifying-glass"></i></div
             ></a>
-            <a href=""><i class="fa-regular fa-bell"></i></a>
+            <a href=""><i class="fa-solid fa-bell"></i></a>
           </div>
         </div>
       </div>
@@ -75,14 +85,79 @@
                 </p>
               </div>
 
-              <div class="place-card">
-                <p class="place-title">중앙로역 근처</p>
-                <p class="place-desc">조금 피곤했지만 산책하기 좋았던 장소.</p>
+              <div class="archive-photo-container">
+                <div class="photo-container">
+                  <img src="./assets/images/place-img-5.jpeg" alt="" />
+                </div>
+                <div class="photo-container">
+                  <img src="./assets/images/place-img-6.jpeg" alt="" />
+                </div>
+                <div class="photo-container">
+                  <img src="./assets/images/place-img-7.jpeg" alt="" />
+                </div>
+              </div>
+              <div class="archive-music">
+                <div class="archive-music-card">
+                  <div class="album-left">
+                    <img
+                      src="./assets/images/album-cover-1.jpg"
+                      alt="'지금이대로만' 앨범커버"
+                    />
+                  </div>
+                  <div class="album-right">
+                    <span class="title">지금 이대로만</span>
+                    <span class="sub-title">박재정, 설윤</span>
+                  </div>
+                </div>
               </div>
 
-              <div class="place-card">
-                <p class="place-title">카페 무드</p>
-                <p class="place-desc">기록된 감정과 음악을 확인할 수 있어요.</p>
+              <div class="archive-playlist">
+                <div class="playlist-title">
+                  <span class="title">이 장소 플레이리스트</span>
+                  <a href=""></a>
+                </div>
+                <div class="archive-music-playlist">
+                  <div class="archive-music-card">
+                    <div class="album-left">
+                      <img
+                        src="./assets/images/album-cover-1.jpg"
+                        alt="'지금이대로만' 앨범커버"
+                      />
+                    </div>
+                    <div class="album-right">
+                      <span class="title">지금 이대로만</span>
+                      <span class="sub-title">박재정, 설윤</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="archive-music-playlist">
+                  <div class="archive-music-card">
+                    <div class="album-left">
+                      <img
+                        src="./assets/images/album-cover-1.jpg"
+                        alt="'지금이대로만' 앨범커버"
+                      />
+                    </div>
+                    <div class="album-right">
+                      <span class="title">지금 이대로만</span>
+                      <span class="sub-title">박재정, 설윤</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="archive-music-playlist">
+                  <div class="archive-music-card">
+                    <div class="album-left">
+                      <img
+                        src="./assets/images/album-cover-1.jpg"
+                        alt="'지금이대로만' 앨범커버"
+                      />
+                    </div>
+                    <div class="album-right">
+                      <span class="title">지금 이대로만</span>
+                      <span class="sub-title">박재정, 설윤</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -131,6 +206,5 @@
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-    <!-- <script src="app.js"></script> -->
   </body>
 </html>

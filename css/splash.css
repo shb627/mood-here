@@ -1,0 +1,87 @@
+/* 스플래쉬 */
+/* .onboarding-logo-wrap {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* 시작부분 */
+/* 로고 */
+.layout {
+  min-height: 100vh;
+}
+.container {
+  min-height: 100vh;
+  display: flex;
+}
+.login-page-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+.onboarding-logo-wrap {
+  width: 100%;
+  display: flex;
+  flex: 1;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px 0;
+}
+.logo-wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0.5;
+  padding: 20px 0 20px 0;
+}
+.bounce {
+  animation: bounce 0.7s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+@keyframes bounce {
+  0% {
+    transform: translateY(0) scaleY(1) scaleX(1);
+  }
+  15% {
+    transform: translateY(-80px) scaleY(1.1) scaleX(0.92);
+  }
+  30% {
+    transform: translateY(-120px) scaleY(1.15) scaleX(0.88);
+  }
+  50% {
+    transform: translateY(-80px) scaleY(1.1) scaleX(0.92);
+  }
+  65% {
+    transform: translateY(-10px) scaleY(0.92) scaleX(1.08);
+  }
+  75% {
+    transform: translateY(0) scaleY(1.06) scaleX(0.96);
+  }
+  85% {
+    transform: translateY(-16px) scaleY(1.02) scaleX(0.99);
+  }
+  100% {
+    transform: translateY(0) scaleY(1) scaleX(1);
+  }
+}
+
+.logo-column {
+  width: 250px;
+  height: auto;
+}
+.login-page-wrap {
+  width: 100%;
+  max-width: 1000px; /* PC에서 너무 퍼지지 않게 조절 */
+  display: flex;
+  gap: 100px; /* 로고와 폼 사이의 간격 */
+  align-items: center;
+  justify-content: center;
+  flex-direction: row; /* 세로 나열에서 가로 나열로 변경 */
+  margin: 0 auto;
+}

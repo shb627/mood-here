@@ -102,6 +102,17 @@
   flex: 1;
   overflow: hidden;
 }
+.mood-record-text {
+}
+.mood-record-img {
+  position: absolute;
+}
+.mood-record-img img {
+  position: absolute;
+  width: 40%;
+  height: auto;
+  right: 0;
+}
 
 .card-container {
   position: relative;
@@ -278,6 +289,14 @@
     align-items: center;
     justify-content: center;
     padding: 0 40px;
+  }
+  .card-container {
+    position: relative;
+    bottom: 75px;
+    left: 300px;
+    width: 154px;
+    height: 206px;
+    margin: 50 auto;
   }
 
   .banner-swiper-wrap {

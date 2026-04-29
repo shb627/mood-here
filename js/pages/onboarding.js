@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (onboardingEl && typeof Swiper !== "undefined") {
     new Swiper(".onboarding-swiper", {
-      loop: true,
+      loop: false,
       slidesPerView: 1,
       spaceBetween: 0,
       keyboard: {
