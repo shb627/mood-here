@@ -148,8 +148,9 @@ body.fade-out {
 section {
   width: 100%;
   display: flex;
-  padding-top: 80px;
+  padding-top: 56px;
   padding-bottom: 90px;
+  flex-direction: column;
 }
 ul,
 li {
@@ -221,17 +222,16 @@ input:focus {
   outline: none;
 }
 /* 하단 네비게이션 */
-/* Bottom nav */
 .bottom-nav {
   position: fixed;
   bottom: 0;
   width: 100%;
-  /* height: 72px; */
-  height: 90px;
+  height: 98px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 16px 32px 16px;
+  padding: 0 16px;
+  padding-bottom: env(safe-area-inset-bottom);
   border-top: 1px solid #f0f0f0;
   box-shadow: 0 1px 10px 2px rgba(0, 0, 0, 0.2);
   z-index: 2;
@@ -325,9 +325,13 @@ button:disabled {
 .header {
   position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
   width: 100%;
   max-width: var(--container-max);
-  padding: 16px 16px;
+  height: 48px;
+  padding: 0 16px;
   border-bottom: 1px solid var(--gray-200);
   /* padding-top: env(safe-area-inset-top); */
   z-index: 100;
@@ -354,7 +358,7 @@ button:disabled {
   text-align: center;
 }
 .header .logo {
-  width: 120%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -562,11 +566,12 @@ button:disabled {
 
 .footer {
   width: 100%;
-  height: 120px;
+  height: 140px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
   justify-content: center;
-  padding: 24px 0; /* 좌우 패딩 없음 — container 패딩 이미 있음 */
+  padding: 24px 16px;
   border-top: 1px solid var(--gray-200);
   background-color: var(--gray-100);
   font-size: 12px;
@@ -610,6 +615,8 @@ button:disabled {
   .header {
     position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     max-width: var(--container-max);
     padding: 16px 24px;
@@ -658,17 +665,14 @@ button:disabled {
     --font-6xl: 64px;
   }
   /* 데스크탑 */
-  .user-menu-desktop {
-    display: flex;
-    gap: var(--spacing-4);
-    font-size: 18px;
-    color: var(--gray-700);
-  }
 
   .header {
     position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
+    height: 72px;
     max-width: var(--container-max);
     padding: 16px 40px;
     border-bottom: 1px solid var(--gray-200);
@@ -681,7 +685,6 @@ button:disabled {
     display: none;
   }
   .user-menu-desktop {
-    width: 40%;
     display: flex;
     gap: var(--spacing-8);
     align-items: center;
@@ -705,6 +708,7 @@ button:disabled {
     font-size: 16px;
   }
   .search-box .search-input {
+    width: 400px;
     height: 24px;
     padding-left: 32px;
   }

@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="./css/home.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/recommend-place.css" />
     <script
       src="https://kit.fontawesome.com/bd66e01c7b.js"
       crossorigin="anonymous"
@@ -89,23 +90,23 @@
               <div class="mood-archive-text btn-text">
                 <p class="title">무드 아카이브</p>
                 <p class="sub-title">내가 기록했던 장소의 감정을 모아보세요</p>
-              </div>
-              <div class="card-container" id="cardAnimation">
-                <img
-                  src="assets/icons/svg/mood-archive-card-3.svg"
-                  alt=""
-                  class="card card3"
-                />
-                <img
-                  src="assets/icons/svg/mood-archive-card-2.svg"
-                  alt=""
-                  class="card card2"
-                />
-                <img
-                  src="assets/icons/svg/mood-archive-card-1.svg"
-                  alt=""
-                  class="card card1"
-                />
+                <div class="card-container" id="cardAnimation">
+                  <img
+                    src="assets/icons/svg/mood-archive-card-3.svg"
+                    alt=""
+                    class="card card3"
+                  />
+                  <img
+                    src="assets/icons/svg/mood-archive-card-2.svg"
+                    alt=""
+                    class="card card2"
+                  />
+                  <img
+                    src="assets/icons/svg/mood-archive-card-1.svg"
+                    alt=""
+                    class="card card1"
+                  />
+                </div>
               </div>
             </a>
             <a href="record-mood.html" class="mood-record-btn">
@@ -115,9 +116,17 @@
                   지금 장소에서 느낀 감정을 자유롭게 적어보세요
                 </p>
                 <div class="mood-record-img">
-                  <img src="assets/icons/svg/peace.png" alt="" />
-                  <img src="assets/icons/svg/feel-happy.png" alt="" />
-                  <img src="assets/icons/svg/mood-charater.png" alt="" />
+                  <img src="assets/icons/svg/peace.png" class="peace" alt="" />
+                  <img
+                    src="assets/icons/svg/feel-happy.png"
+                    class="happy"
+                    alt=""
+                  />
+                  <img
+                    src="assets/icons/svg/mood-charater.png"
+                    class="mood-charater"
+                    alt=""
+                  />
                 </div>
               </div>
             </a>
@@ -135,17 +144,24 @@
               </p>
             </div>
             <div class="place-preview">
-              <div class="home-recommend-place">
-                <div class="recommend-place-card">
-                  <div class="place-left">
-                    <img
-                      src="./assets/images/album-cover-1.jpg"
-                      alt="'지금이대로만' 앨범커버"
-                    />
+              <div class="place-card">
+                <div class="place-card-img">
+                  <img
+                    src="assets/images/place-img-1.jpeg"
+                    alt="써브웨이 반월당역점 대구광역시 중구 남산동 달구벌대로 2076"
+                  />
+                </div>
+                <div class="place-card-text">
+                  <div class="place-title">
+                    <p class="title">써브웨이 반월당역점</p>
                   </div>
-                  <div class="place-right">
-                    <span class="title">지금 이대로만</span>
-                    <span class="sub-title">박재정, 설윤</span>
+                  <div class="place-sub-title">
+                    <p class="sub-title">
+                      대구광역시 중구 남산동 달구벌대로 2076
+                    </p>
+                  </div>
+                  <div class="place-distance">
+                    <p class="distance">1.3km</p>
                   </div>
                 </div>
               </div>
@@ -163,18 +179,33 @@
                 다른 사람들이 남긴 장소와 감정을 공유해보세요
               </p>
             </div>
-            <div class="place-preview">
-              <div class="home-recommend-place">
-                <div class="recommend-place-card">
-                  <div class="place-left">
-                    <img
-                      src="./assets/images/album-cover-1.jpg"
-                      alt="'지금이대로만' 앨범커버"
-                    />
+            <div class="mood-comunity">
+              <div class="mood-comunity-card">
+                <div class="comunity-top">
+                  <div class="comunity-profile"></div>
+                  <div class="profile-info">
+                    <p>익명</p>
+                    <p>7시간 전</p>
                   </div>
-                  <div class="place-right">
-                    <span class="title">지금 이대로만</span>
-                    <span class="sub-title">박재정, 설윤</span>
+                </div>
+                <div class="comunity-bottom">
+                  <div class="comunity-text">
+                    오늘 자격증 시험 보는날이라 카페와서 공부중~힘드네요ㅠ
+                  </div>
+                </div>
+              </div>
+              <div class="mood-comunity-card">
+                <div class="comunity-top">
+                  <div class="comunity-profile"></div>
+                  <div class="profile-info">
+                    <p>익명</p>
+                    <p>5시간 전</p>
+                  </div>
+                </div>
+                <div class="comunity-bottom">
+                  <div class="comunity-text">
+                    오늘 칠곡에 영화보고 왔어요 우울했는데 영화 한 편 보고 나니
+                    스트레스가 확 풀리네요
                   </div>
                 </div>
               </div>
