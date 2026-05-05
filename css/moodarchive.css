@@ -150,7 +150,7 @@ section {
   display: flex;
   flex: 1;
   aspect-ratio: 1/1;
-  border-radius: var(--spacing-12);
+  border-radius: 4%;
   overflow: hidden;
 }
 .archive-photo-container img {

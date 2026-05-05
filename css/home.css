@@ -1,9 +1,9 @@
 .home-container {
   width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 /* 배너 */
 .banner-swiper-wrap {
@@ -22,46 +22,46 @@
 
 .swiper-slide {
   position: relative;
-  text-align: center;
-  background: #444;
-  border-radius: var(--spacing-12);
-  background-color: 0;
-  justify-content: center;
   align-items: center;
-  overflow: hidden;
+  justify-content: center;
   border: 1px solid var(--gray-100);
+  overflow: hidden;
+  background: #444;
+  background-color: 0;
+  text-align: center;
+  border-radius: var(--spacing-12);
 }
 /* 이미지 위 그라데이션 */
 .swiper-slide::before {
   content: "";
   position: absolute;
-  inset: 0;
+  z-index: 1;
   background: linear-gradient(
     50deg,
     rgba(0, 20, 3, 0.8) 0%,
     rgba(0, 20, 3, 0) 70%
   );
-  z-index: 1;
+  inset: 0;
   mix-blend-mode: multiply;
 }
 
 .swiper-slide img {
-  display: block;
   width: 100%;
   height: 120px;
+  display: block;
   border-radius: var(--spacing-12);
   object-fit: cover;
 }
 .banner-title {
-  line-height: 1.6;
-  font-size: var(--font-sm);
   position: absolute;
-  color: #fff;
   bottom: 25px;
   left: 25px;
   z-index: 2;
-  text-align: left;
+  font-size: var(--font-sm);
   font-weight: 500;
+  line-height: 1.2;
+  color: #fff;
+  text-align: left;
 }
 
 .swiper-pagination {
@@ -70,59 +70,124 @@
 }
 
 .btn-text {
-  padding: 14px 20px 20px 20px;
   position: relative;
+  padding: 14px 20px 20px 20px;
 }
 
 .record-mood-container {
   position: relative;
   display: flex;
   gap: 8px;
-  padding-bottom: 12px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--gray-200);
 }
 .mood-archive-btn {
   position: relative;
-  border-radius: var(--spacing-12);
-  border: 1px solid var(--gray-300);
-  /* background-color: #62a44e; */
-  background: linear-gradient(-45deg, #0ec244, #ffffff);
   width: 100%;
 
   height: 198px;
   flex: 1;
+  border: 1px solid var(--gray-300);
   overflow: hidden;
+  background: linear-gradient(-180deg, #ffffff, #fff9cd, #fff6ae);
+  border-radius: var(--spacing-12);
 }
-/* .mood-archive-text {
-  padding: 20px;
+.mood-archive-text {
   position: relative;
-} */
+}
+.mood-archive-text .sub-title {
+  position: relative;
+  font-size: 12px;
+  color: var(--gray-500);
+}
 .mood-record-btn {
-  border-radius: var(--spacing-12);
-  border: 1px solid var(--gray-300);
+  position: relative;
   width: 100%;
   height: 198px;
   flex: 1;
-  background-color: #30aacf;
-  background: linear-gradient(-180deg, #a8eeff, #108ac2);
-
+  border: 1px solid var(--gray-300);
   overflow: hidden;
+  background: linear-gradient(-180deg, #ffffff, #d3ffc8, #beffae);
+  background-color: #30aacf;
+  border-radius: var(--spacing-12);
+}
+
+.mood-record-btn .sub-title {
+  position: relative;
+  font-size: 12px;
+  color: var(--gray-500);
+}
+.mood-archive-text .title,
+.sub-title {
+  z-index: 3;
 }
 .mood-record-text {
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+  z-index: 5;
+}
+.mood-record-text .title {
+  z-index: 3;
+}
+.mood-record-text .sub-title {
+  z-index: 3;
 }
 .mood-record-img {
+  width: 100%;
+  height: 100%;
   position: relative;
 }
 .mood-record-img img {
-  position: absolute;
+}
+.mood-record-img .peace {
   width: 40%;
   height: auto;
-  right: 0;
+  position: absolute;
+  top: 10%;
+  z-index: 2;
+  display: none;
+}
+.mood-record-img .happy {
+  width: 40%;
+  height: auto;
+  position: absolute;
+  right: -20%;
+  top: -11%;
+  z-index: 2;
+}
+.mood-record-img .mood-character {
+  width: 80%;
+  height: auto;
+  position: absolute;
+  right: -10%;
+  top: 19%;
+  z-index: 2;
+}
+.mood-record-img .cloud {
+  transform: scaleX(-1);
+
+  width: 100%;
+  height: auto;
+  position: absolute;
+  right: -50%;
+  top: -40%;
+  z-index: -1;
+}
+.mood-record-img .left-cloud {
+  width: 70%;
+  height: auto;
+  position: absolute;
+  right: 70%;
+  top: 40%;
+  z-index: -1;
 }
 
 .card-container {
-  position: relative;
-  bottom: 20px;
-  left: 100px;
+  position: absolute;
+  bottom: -60%;
+  left: 80%;
   width: 82px; /* 이미지 실제 크기에 맞춰 조절 */
   height: 108px;
   margin: 50 auto;
@@ -130,16 +195,18 @@
 
 .card {
   position: absolute;
-  width: 100%;
-  bottom: 0;
   right: 0;
-  border-radius: var(--spacing-8);
-  transform-origin: bottom right;
+  bottom: 0;
+  z-index: 2;
+
+  width: 100%;
   box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 
   /* 애니메이션 설정: 0.8초 동안, 약간의 튕김 효과(cubic-bezier) */
   animation: spreadOut 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  border-radius: var(--spacing-8);
+  transform-origin: bottom right;
 
   /* 초기 상태: 모두 겹쳐 있음 */
   transform: rotate(0deg);
@@ -215,43 +282,61 @@
 }
 
 .mood-record {
-  border-radius: var(--spacing-12);
-  border: 1px solid var(--gray-100);
-  background-color: #fff;
   width: 100%;
   height: 198px;
   flex: 1;
+  border: 1px solid var(--gray-100);
+  background-color: #fff;
+  border-radius: var(--spacing-12);
 }
 
 .recommend-place-container {
   width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: flex-start;
+  flex-direction: column;
+  padding: 12px 0 20px 0;
+  border-bottom: 1px solid var(--gray-200);
 }
 .place-title-top {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 .place-title-top .title {
 }
 .place-title-top .sub-title {
 }
 .place-title-top .fa-angle-right {
-  font-size: 20px;
-  color: var(--white);
-  background-color: var(--green-400);
   width: 24px;
   height: 24px;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: var(--green-400);
+  font-size: 20px;
+  color: var(--white);
+  border-radius: 50%;
 }
 .place-title-botom {
   padding-bottom: 12px;
 }
+.place-preview {
+  padding: 12px;
+  border-radius: var(--spacing-12);
+  overflow: hidden;
+  border: 1px solid var(--gray-300);
+  background-color: var(--white);
+}
+
+.mood-comunity-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 12px 0 20px 0;
+}
+
 .mood-comunity {
   display: flex;
   gap: 8px;
@@ -260,46 +345,70 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--gray-100);
+  padding: 12px;
+  border: 1px solid var(--gray-300);
   border-radius: var(--spacing-12);
-  padding: 8px;
 }
-.mood-comunity-card .comunity-top {
+.comunity-top {
   display: flex;
-  justify-content: space-between;
+  gap: 12px;
   align-items: center;
+  padding-bottom: 16px;
 }
 .comunity-profile {
-  background-color: #444;
-  border-radius: 100px;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
+  background-color: #a4a4a4;
+  border-radius: 100%;
+  overflow: hidden;
+  background-color: var(--green-400);
+  border: 1px solid var(--gray-200);
 }
+.comunity-profile .comunity-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: var(--font-xs);
+}
+.profile-info .profile-name,
+.profile-info .profile-time {
+  line-height: 1.2;
+  font-size: 14px;
+}
+.profile-info .profile-time {
+  color: var(--gray-400);
+}
+
 .mood-comunity-card .comunity-bottom {
 }
 .comunity-bottom .comunity-text {
-  line-height: 24px;
+  line-height: 1.2;
+  font-size: 14px;
 }
 
 .home-recommend-place {
   padding-bottom: 16px;
 }
 .recommend-place-card {
-  padding: 8px 12px;
-  border-radius: var(--spacing-12);
-  border: 1px solid var(--gray-200);
-  overflow: hidden;
   display: flex;
   gap: 24px;
+  padding: 8px 12px;
+  overflow: hidden;
+  border-radius: var(--spacing-12);
 }
 .recommend-place-card .place-left {
-  border-radius: var(--spacing-12);
-  overflow: hidden;
-  border: 1px solid var(--gray-200);
   width: 50%;
-  aspect-ratio: 16/9;
   display: flex;
   flex: 1;
+  border: 1px solid var(--gray-200);
+  overflow: hidden;
+  border-radius: var(--spacing-12);
+  aspect-ratio: 16/9;
 }
 .recommend-place-card .place-left img {
   width: 100%;
@@ -317,9 +426,9 @@
     padding: 0 24px;
   }
   .swiper-slide img {
-    display: block;
     width: 100%;
     height: 220px;
+    display: block;
     border-radius: var(--spacing-12);
     object-fit: cover;
   }
@@ -333,19 +442,19 @@
   }
   .record-mood-container {
     position: relative;
-    display: flex;
     width: 100%;
+    display: flex;
     gap: 8px;
   }
   .mood-archive-btn {
     position: relative;
-    border-radius: var(--spacing-12);
-    border: 1px solid var(--gray-300);
-    background-color: #fff;
     width: 100%;
     height: 198px;
     flex: 1;
+    border: 1px solid var(--gray-300);
     overflow: hidden;
+    background-color: #fff;
+    border-radius: var(--spacing-12);
   }
 }
 
@@ -379,32 +488,83 @@
   .swiper-slide {
     position: relative;
     display: block;
+    border: 1px solid var(--gray-100);
+    overflow: hidden;
     background: transparent;
     border-radius: var(--spacing-12);
-    overflow: hidden;
-    border: 1px solid var(--gray-100);
   }
 
   .swiper-slide img {
-    display: block;
     width: 100%;
     height: 320px;
+    display: block;
     object-fit: cover;
     border-radius: var(--spacing-12);
   }
   .record-mood-container {
-    width: 100%;
     position: relative;
+    width: 100%;
     display: flex;
     gap: 8px;
   }
   .mood-record-btn {
-    border-radius: var(--spacing-12);
-    border: 1px solid var(--gray-300);
-    background-color: #fff;
     width: 100%;
     height: 198px;
     flex: 1;
+    border: 1px solid var(--gray-300);
     overflow: hidden;
+    background-color: #fff;
+    border-radius: var(--spacing-12);
+  }
+
+  .mood-record-img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  .mood-record-img img {
+  }
+  /* .mood-record-img .peace {
+    width: 24%;
+    height: auto;
+    position: absolute;
+    left: 0%;
+    top: 10%;
+    display: block;
+    z-index: 2;
+  } */
+  .mood-record-img .happy {
+    width: 24%;
+    height: auto;
+    position: absolute;
+    right: -10%;
+    top: -70%;
+    z-index: 2;
+  }
+  .mood-record-img .mood-character {
+    width: 55%;
+    height: auto;
+    position: absolute;
+    right: -10%;
+    top: -12%;
+    z-index: 2;
+  }
+  .mood-record-img .cloud {
+    transform: scaleX(-1);
+
+    width: 60%;
+    height: auto;
+    position: absolute;
+    right: -30%;
+    top: -80%;
+    z-index: -1;
+  }
+  .mood-record-img .left-cloud {
+    width: 60%;
+    height: auto;
+    position: absolute;
+    right: 60%;
+    top: 20%;
+    z-index: -1;
   }
 }

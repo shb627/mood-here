@@ -7,8 +7,8 @@
 
     <link rel="icon" href="assets/icons/svg/moodhere-fabicon.ico" />
 
-    <link rel="stylesheet" href="./css/home.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/home.css" />
     <link rel="stylesheet" href="./css/recommend-place.css" />
     <script
       src="https://kit.fontawesome.com/bd66e01c7b.js"
@@ -115,6 +115,7 @@
                 <p class="sub-title">
                   지금 장소에서 느낀 감정을 자유롭게 적어보세요
                 </p>
+                <!-- 레코드 무드 이미지 -->
                 <div class="mood-record-img">
                   <img src="assets/icons/svg/peace.png" class="peace" alt="" />
                   <img
@@ -124,7 +125,17 @@
                   />
                   <img
                     src="assets/icons/svg/mood-charater.png"
-                    class="mood-charater"
+                    class="mood-character"
+                    alt=""
+                  />
+                  <img
+                    src="./assets/icons/svg/cloud.svg"
+                    class="cloud"
+                    alt=""
+                  />
+                  <img
+                    src="./assets/icons/svg/cloud.svg"
+                    class="left-cloud"
                     alt=""
                   />
                 </div>
@@ -143,31 +154,33 @@
                 다른 사람들이 남긴 장소와 감정을 공유해보세요
               </p>
             </div>
-            <div class="place-preview">
-              <div class="place-card">
-                <div class="place-card-img">
-                  <img
-                    src="assets/images/place-img-1.jpeg"
-                    alt="써브웨이 반월당역점 대구광역시 중구 남산동 달구벌대로 2076"
-                  />
-                </div>
-                <div class="place-card-text">
-                  <div class="place-title">
-                    <p class="title">써브웨이 반월당역점</p>
+            <a href="recommend-place.html">
+              <div class="place-preview">
+                <div class="place-card">
+                  <div class="place-card-img">
+                    <img
+                      src="assets/images/place-img-1.jpeg"
+                      alt="써브웨이 반월당역점 대구광역시 중구 남산동 달구벌대로 2076"
+                    />
                   </div>
-                  <div class="place-sub-title">
-                    <p class="sub-title">
-                      대구광역시 중구 남산동 달구벌대로 2076
-                    </p>
-                  </div>
-                  <div class="place-distance">
-                    <p class="distance">1.3km</p>
+                  <div class="place-card-text">
+                    <div class="place-title">
+                      <p class="title">써브웨이 반월당역점</p>
+                    </div>
+                    <div class="place-sub-title">
+                      <p class="sub-title">
+                        대구광역시 중구 남산동 달구벌대로 2076
+                      </p>
+                    </div>
+                    <div class="place-distance">
+                      <p class="distance">1.3km</p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
-          <div class="recommend-place-container">
+          <div class="mood-comunity-container">
             <div class="place-title-top">
               <h3 class="title">무드 커뮤니티</h3>
               <a href="recommend-place.html"
@@ -182,10 +195,16 @@
             <div class="mood-comunity">
               <div class="mood-comunity-card">
                 <div class="comunity-top">
-                  <div class="comunity-profile"></div>
+                  <div class="comunity-profile">
+                    <img
+                      src="./assets/icons/svg/mood-charater-2.png"
+                      alt=""
+                      class="comunity-img"
+                    />
+                  </div>
                   <div class="profile-info">
-                    <p>익명</p>
-                    <p>7시간 전</p>
+                    <p class="profile-name">kmd123</p>
+                    <p class="profile-time">7시간 전</p>
                   </div>
                 </div>
                 <div class="comunity-bottom">
@@ -196,10 +215,12 @@
               </div>
               <div class="mood-comunity-card">
                 <div class="comunity-top">
-                  <div class="comunity-profile"></div>
+                  <div class="comunity-profile">
+                    <img src="./assets/images/profile-img-2.png" alt="" />
+                  </div>
                   <div class="profile-info">
-                    <p>익명</p>
-                    <p>5시간 전</p>
+                    <p class="profile-name">그린이97</p>
+                    <p class="profile-time">5시간 전</p>
                   </div>
                 </div>
                 <div class="comunity-bottom">
@@ -213,21 +234,21 @@
           </div>
           <footer class="footer">
             <div class="footer-logo">
-              <img src="./assets/icons/svg/logo-column-gray.svg" alt="" />
+              <img src="./assets/icons/svg/footer-logo.svg" alt="" />
             </div>
             <div class="footer-info">
-              <p>Copyright (c) 2026 moodhere All rights reserved.</p>
               <p>
                 이용약관 개인정보처리방침 위치기반서비스 이용약관 커뮤니티
                 가이드라인
               </p>
+              <p>Copyright (c) 2026 moodhere All rights reserved.</p>
             </div>
           </footer>
         </div>
       </section>
       <div class="bottom-nav">
         <div class="bottom-nav-container">
-          <a href="home.html" data-page="home.html">
+          <a href="home.html" data-page="home.html" class="">
             <div class="nav-item">
               <img src="assets/icons/svg/dis-home.svg" />
               <span>홈</span>
