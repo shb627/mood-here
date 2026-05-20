@@ -717,7 +717,7 @@ button:disabled {
 }
 
 /* desktop */
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 1024px) {
   :root {
     --font-sm: 16px;
     --font-md: 18px;
