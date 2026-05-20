@@ -21,6 +21,47 @@
   -moz-appearance: none;
   border-radius: var(--spacing-12);
 }
+.logo-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex: 0.5;
+  padding: 32px 0; /* 모바일의 80px 패딩 제거 */
+}
+
+.logo-column {
+  width: 50%;
+}
+
+.bounce {
+  animation: bounce 0.7s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+@keyframes bounce {
+  0% {
+    transform: translateY(0) scaleY(1) scaleX(1);
+  }
+  15% {
+    transform: translateY(-80px) scaleY(1.1) scaleX(0.92);
+  }
+  30% {
+    transform: translateY(-120px) scaleY(1.15) scaleX(0.88);
+  }
+  50% {
+    transform: translateY(-80px) scaleY(1.1) scaleX(0.92);
+  }
+  65% {
+    transform: translateY(-10px) scaleY(0.92) scaleX(1.08);
+  }
+  75% {
+    transform: translateY(0) scaleY(1.06) scaleX(0.96);
+  }
+  85% {
+    transform: translateY(-16px) scaleY(1.02) scaleX(0.99);
+  }
+  100% {
+    transform: translateY(0) scaleY(1) scaleX(1);
+  }
+}
 
 /* 로그인 인풋 */
 .login-form-wrap {
