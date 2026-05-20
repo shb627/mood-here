@@ -717,7 +717,7 @@ button:disabled {
 }
 
 /* desktop */
-@media screen and (min-width: 1024px) {
+@media screen and (max-width: 1024px) {
   :root {
     --font-sm: 16px;
     --font-md: 18px;
@@ -837,27 +837,26 @@ button:disabled {
     color: var(--gray-500);
   }
   .footer-logo {
-    width: 30%;
+    width: 100%;
     height: auto;
   }
   .footer-logo img {
-    width: 100%;
+    width: 60%;
   }
   .footer-info {
     display: flex;
-    justify-content: flex-end;
-  }
-  .footer-info .copyright {
-    display: flex;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
   }
   .footer-link {
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
     justify-content: flex-end;
     gap: 8px;
     line-height: 1.2;
+  }
+  .footer-info .copyright {
+    display: flex;
+    justify-content: flex-end;
   }
 
   .bottom-nav {
@@ -890,5 +889,41 @@ button:disabled {
     align-items: center;
     justify-content: space-between;
     padding: 0 0;
+  }
+  /* 푸터 */
+  .footer {
+    width: 100vw;
+    margin-left: calc(-47vw + 50%);
+    height: 140px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 40px;
+    background-color: var(--gray-100);
+    font-size: 12px;
+    color: var(--gray-500);
+  }
+  .footer-logo {
+    width: 100%;
+    height: auto;
+  }
+  .footer-logo img {
+    width: 60%;
+  }
+  .footer-info {
+    display: flex;
+    /* justify-content: flex-end; */
+  }
+  .footer-link {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    line-height: 1.2;
+  }
+  .footer-info .copyright {
+    display: flex;
+    justify-content: flex-end;
   }
 }
