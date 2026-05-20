@@ -2,6 +2,7 @@
   width: 100%;
   display: flex;
   padding-top: 80px;
+  gap: 12px;
   /* padding-bottom: 140px; */
 }
 

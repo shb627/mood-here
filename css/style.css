@@ -353,6 +353,7 @@ button:disabled {
   width: 24px;
   height: 24px;
   display: flex;
+  align-items: center;
 }
 .header-title {
   display: flex;
@@ -588,6 +589,10 @@ button:disabled {
   width: 100%;
 }
 .footer-info {
+  display: flex;
+  flex-direction: column;
+}
+.footer-link {
   line-height: 1.2;
   gap: 8px;
 }
@@ -607,6 +612,12 @@ button:disabled {
 
     /* 하단 바 */
     --bottom-bar-h: 112px;
+  }
+  section {
+    width: 100%;
+    display: flex;
+    padding-top: 56px;
+    flex-direction: column;
   }
 
   .container {
@@ -643,6 +654,40 @@ button:disabled {
   .intro {
     padding: 24px 24px 180px 24px;
   }
+  /* 푸터 */
+  .footer {
+    width: 100vw;
+    margin-left: calc(-47vw + 50%);
+    height: 140px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 24px;
+    background-color: var(--gray-100);
+    font-size: 12px;
+    color: var(--gray-500);
+  }
+  .footer-logo {
+    width: 30%;
+    height: auto;
+  }
+  .footer-logo img {
+    width: 100%;
+  }
+  .footer-info {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .footer-info .copyright {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .footer-link {
+    line-height: 1.2;
+    gap: 8px;
+    display: flex;
+  }
   .bottom-nav {
     position: fixed;
     bottom: 0;
@@ -671,8 +716,12 @@ button:disabled {
     --font-5xl: 52px;
     --font-6xl: 64px;
   }
-  /* 데스크탑 */
-
+  section {
+    width: 100%;
+    display: flex;
+    padding-top: 56px;
+    flex-direction: column;
+  }
   .header {
     position: fixed;
     top: 0;
@@ -760,11 +809,51 @@ button:disabled {
   .fa-angle-left {
     font-size: 24px;
   }
+  /* 푸터 */
+  .footer {
+    width: 100vw;
+    margin-left: calc(-47vw + 50%);
+    height: 140px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 40px;
+    background-color: var(--gray-100);
+    font-size: 12px;
+    color: var(--gray-500);
+  }
+  .footer-logo {
+    width: 30%;
+    height: auto;
+  }
+  .footer-logo img {
+    width: 100%;
+  }
+  .footer-info {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .footer-info .copyright {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .footer-link {
+    line-height: 1.2;
+    gap: 8px;
+    display: flex;
+  }
   .bottom-nav {
     display: none;
   }
 }
 @media screen and (min-width: 1440px) {
+  section {
+    width: 100%;
+    display: flex;
+    padding-top: 56px;
+    flex-direction: column;
+  }
   .header {
     position: fixed;
     top: 0;

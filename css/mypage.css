@@ -41,3 +41,15 @@
   padding: 12px 0;
   text-align: center;
 }
+.edit-porifile {
+  margin-bottom: 12px;
+}
+.mypage {
+  width: 100%;
+}
+
+.mypage a {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--gray-200);
+}

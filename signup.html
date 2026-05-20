@@ -18,89 +18,93 @@
     <div class="layout">
       <!-- <div class="top"></div> -->
       <div class="header">
-        <div class="header-container">
+        <div class="header-contents">
           <button type="button" class="back-btn" id="backBtn">
             <i class="fa-solid fa-angle-left"></i>
           </button>
         </div>
       </div>
-      <main class="container">
-        <div class="wrap-column">
-          <div class="login-content-side">
-            <div class="login-form-wrap">
-              <div class="page-title">
-                <h2>계정 만들기</h2>
-              </div>
-              <div class="signup-title">
-                <p>아이디 <span>*</span></p>
-                <input
-                  type="text"
-                  placeholder="아이디를 입력해주세요"
-                  class="signup"
-                />
-              </div>
-
-              <div class="signup-title">
-                <p>비밀번호 *</p>
-                <input
-                  type="password"
-                  placeholder="영문, 숫자, 특수문자 조합 8자리 이상"
-                  class="signup"
-                  id="passWord"
-                />
-              </div>
-
-              <div class="signup-title">
-                <p>비밀번호 확인 *</p>
-                <input
-                  type="password"
-                  placeholder=""
-                  class="signup pw-confirm"
-                  id="pwConfirm"
-                />
-
-                <p class="pw-error" id="pwError">
-                  비밀번호가 일치하지 않습니다
-                </p>
-                <p class="pw-complete" id="pwComplete">비밀번호가 일치합니다</p>
-              </div>
-
-              <div class="signup-title">
-                <p>이름 *</p>
-                <input
-                  type="text"
-                  placeholder="이름을 입력해주세요"
-                  class="signup"
-                />
-              </div>
-
-              <div class="signup-title">
-                <p>전화번호 *</p>
-                <div class="tel-wrap">
+      <section>
+        <main class="container">
+          <div class="wrap-column">
+            <div class="login-content-side">
+              <div class="login-form-wrap">
+                <div class="page-title">
+                  <h2>계정 만들기</h2>
+                </div>
+                <div class="signup-title">
+                  <p>아이디 <span>*</span></p>
                   <input
-                    type="tel"
-                    placeholder='"-" 없이 번호만 입력'
-                    class="tel"
-                    id="phoneNumber"
+                    type="text"
+                    placeholder="아이디를 입력해주세요"
+                    class="signup"
                   />
-                  <!-- <button class="authnum" id="authNum">인증번호 받기</button>
+                </div>
+
+                <div class="signup-title">
+                  <p>비밀번호 *</p>
+                  <input
+                    type="password"
+                    placeholder="영문, 숫자, 특수문자 조합 8자리 이상"
+                    class="signup"
+                    id="passWord"
+                  />
+                </div>
+
+                <div class="signup-title">
+                  <p>비밀번호 확인 *</p>
+                  <input
+                    type="password"
+                    placeholder=""
+                    class="signup pw-confirm"
+                    id="pwConfirm"
+                  />
+
+                  <p class="pw-error" id="pwError">
+                    비밀번호가 일치하지 않습니다
+                  </p>
+                  <p class="pw-complete" id="pwComplete">
+                    비밀번호가 일치합니다
+                  </p>
+                </div>
+
+                <div class="signup-title">
+                  <p>이름 *</p>
+                  <input
+                    type="text"
+                    placeholder="이름을 입력해주세요"
+                    class="signup"
+                  />
+                </div>
+
+                <div class="signup-title">
+                  <p>전화번호 *</p>
+                  <div class="tel-wrap">
+                    <input
+                      type="tel"
+                      placeholder='"-" 없이 번호만 입력'
+                      class="tel"
+                      id="phoneNumber"
+                    />
+                    <!-- <button class="authnum" id="authNum">인증번호 받기</button>
                   <button class="authnum-active" id="authNumActive">
                     인증번호 받기
                   </button> -->
-                  <a href="home.html">
-                    <button class="btn authnum-complete" id="completeAuth">
-                      인증완료
-                    </button>
-                  </a>
-                  <!-- <div class="btn authnum" id="reAuth">재발송</div> -->
+                    <a href="home.html">
+                      <button class="btn authnum-complete" id="completeAuth">
+                        인증완료
+                      </button>
+                    </a>
+                    <!-- <div class="btn authnum" id="reAuth">재발송</div> -->
+                  </div>
                 </div>
+                <!-- <a href="home.html"><div class="btn"></div></a> -->
               </div>
-              <a href="home.html"><div class="btn"></div></a>
             </div>
+            <div class="menu-bar"></div>
           </div>
-          <div class="menu-bar"></div>
-        </div>
-      </main>
+        </main>
+      </section>
     </div>
     <script type="module" src="./js/app.js"></script>
   </body>

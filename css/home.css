@@ -89,7 +89,9 @@
   flex: 1;
   border: 1px solid var(--gray-300);
   overflow: hidden;
-  background: linear-gradient(-180deg, #ffffff, #fff9cd, #fff6ae);
+  /* background: linear-gradient(-180deg, #ffffff, #fff9cd, #fff6ae); */
+  background-color: #2cd586;
+
   border-radius: var(--spacing-12);
 }
 .mood-archive-text {
@@ -97,8 +99,8 @@
 }
 .mood-archive-text .sub-title {
   position: relative;
-  font-size: 12px;
-  color: var(--gray-500);
+  font-size: 14px;
+  color: var(--gray-900);
 }
 .mood-record-btn {
   position: relative;
@@ -107,15 +109,18 @@
   flex: 1;
   border: 1px solid var(--gray-300);
   overflow: hidden;
-  background: linear-gradient(-180deg, #ffffff, #d3ffc8, #beffae);
+  /* background: linear-gradient(-180deg, #ffffff, #d3ffc8, #beffae); */
   background-color: #30aacf;
   border-radius: var(--spacing-12);
 }
 
 .mood-record-btn .sub-title {
   position: relative;
-  font-size: 12px;
-  color: var(--gray-500);
+  font-size: 14px;
+  color: var(--gray-900);
+}
+.mood-archive-text .title {
+  font-weight: 900;
 }
 .mood-archive-text .title,
 .sub-title {
@@ -172,7 +177,7 @@
   height: auto;
   position: absolute;
   right: -50%;
-  top: -40%;
+  bottom: 10%;
   z-index: -1;
 }
 .mood-record-img .left-cloud {
@@ -453,7 +458,7 @@
     flex: 1;
     border: 1px solid var(--gray-300);
     overflow: hidden;
-    background-color: #fff;
+    background-color: #2cd586;
     border-radius: var(--spacing-12);
   }
 }
@@ -513,7 +518,7 @@
     flex: 1;
     border: 1px solid var(--gray-300);
     overflow: hidden;
-    background-color: #fff;
+    background-color: #30aacf;
     border-radius: var(--spacing-12);
   }
 
