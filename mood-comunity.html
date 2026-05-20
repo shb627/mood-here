@@ -3,18 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>무드히어 감정기록 서비스</title>
+    <title>mood here</title>
     <link rel="icon" href="assets/icons/svg/moodhere-fabicon.ico" />
 
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/mypage.css" />
+    <link rel="stylesheet" href="./css/mood-comunity.css" />
+
     <script
       src="https://kit.fontawesome.com/bd66e01c7b.js"
       crossorigin="anonymous"
     ></script>
-
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
+    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=c363676500da135bbb227b2613ea7977&libraries=services&autoload=false"></script>
+    <script src="./js/pages/moodArchive.js" defer></script>
     <script src="./js/pages/script.js" defer></script>
-    <script src="./js/pages/myPage.js"></script>
   </head>
   <body>
     <div class="layout">
@@ -24,7 +30,7 @@
             <i class="fa-solid fa-angle-left"></i>
           </div>
           <div class="header-title">
-            <p>마이페이지</p>
+            <p>무드 커뮤니티</p>
           </div>
           <div class="user-menu-mobile">
             <!-- <a href="">
@@ -34,62 +40,15 @@
             <a href=""><i class="fa-solid fa-bell"></i></a> -->
           </div>
           <!-- 테스크탑 -->
-          <div class="user-menu-desktop">
-            <a href=""><i class="fa-solid fa-circle-user"></i></a>
-
-            <a href="">
-              <div class="searchicon">
-                <i class="fa-solid fa-magnifying-glass"></i></div
-            ></a>
-            <a href=""><i class="fa-solid fa-bell"></i></a>
-          </div>
         </div>
       </div>
-      <!-- 무드 기록 -->
-      <section class="record-mood">
+      <section>
         <div class="container">
-          <div class="profile-edit">
-            <div class="profile-img-box">
-              <img
-                id="profilePreview"
-                class="profile-preview is-default"
-                src="assets/icons/svg/profile-none.svg"
-                alt="프로필 이미지"
-              />
-
-              <label for="profileInput" class="camera-btn">
-                <img
-                  src="assets/icons/svg/edit-profile-photo.svg"
-                  alt="프로필 사진 수정"
-                />
-              </label>
-
-              <input type="file" id="profileInput" accept="image/*" hidden />
-            </div>
+          <div class="loading">
+            <h1>준비중...</h1>
           </div>
-          <div class="user-name"><span>김민수</span>님</div>
-          <div class="btn edit-porifile">프로필 수정하기</div>
-
-          <!-- <ul class="mypage">
-            <li><a href="">설정</a></li>
-           
-          </ul> -->
-
-          <!-- <footer class="footer">
-            <div class="footer-logo">
-              <img src="./assets/icons/svg/footer-logo.svg" alt="" />
-            </div>
-            <div class="footer-info">
-              <p>
-                이용약관 개인정보처리방침 위치기반서비스 이용약관 커뮤니티
-                가이드라인
-              </p>
-              <p>Copyright (c) 2026 moodhere All rights reserved.</p>
-            </div>
-          </footer> -->
         </div>
       </section>
-
       <div class="bottom-nav">
         <div class="bottom-nav-container">
           <a href="home.html" data-page="home.html">
@@ -130,6 +89,7 @@
       </div>
     </div>
 
-    <!-- <script src="app.js"></script> -->
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
   </body>
 </html>
