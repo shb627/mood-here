@@ -561,6 +561,9 @@ button:disabled {
 }
 .save-mood {
   margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 /* 하단 네비 */
 .bottom-nav a.active span {
@@ -584,17 +587,23 @@ button:disabled {
 .footer-logo {
   width: 40%;
   height: auto;
+  flex: 1;
 }
 .footer-logo img {
   width: 100%;
 }
 .footer-info {
   display: flex;
+  flex: 2.5;
   flex-direction: column;
 }
 .footer-link {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 4px;
   line-height: 1.2;
-  gap: 8px;
 }
 
 /* 반응형 */
@@ -684,10 +693,14 @@ button:disabled {
     justify-content: flex-end;
   }
   .footer-link {
-    line-height: 1.2;
-    gap: 8px;
+    width: 100%;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+    line-height: 1.2;
   }
+
   .bottom-nav {
     position: fixed;
     bottom: 0;
@@ -839,10 +852,14 @@ button:disabled {
     justify-content: flex-end;
   }
   .footer-link {
-    line-height: 1.2;
-    gap: 8px;
+    width: 100%;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+    line-height: 1.2;
   }
+
   .bottom-nav {
     display: none;
   }
